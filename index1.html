@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alien Energy Cathedral</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+html,body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:black;
+}
+canvas{
+    display:block;
+}
+#vignette{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at center,
+        rgba(0,255,255,0.12),
+        rgba(0,0,0,0.9));
+}
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+<div id="vignette"></div>
+
+<script>
+/* =========================================================
+   CANVAS SETUP
+========================================================= */
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+}
+resize();
+addEventListener("resize", resize);
+
+/* =========================================================
+   GLOBAL TIME & CAMERA
+========================================================= */
+let t = 0;
+let camera = {
+    zoom: 1,
+    shake: 0,
+    driftX: 0,
+    driftY: 0
+};
+
+/* =========================================================
+   CURSOR INTERACTION
+========================================================= */
+const pointer = {
+    x: innerWidth/2,
+    y: innerHeight/2,
+    down:false,
+    hold:0,
+    singularity:false
+};
+
+canvas.onmousemove = e=>{
+    pointer.x=e.clientX;
+    pointer.y=e.clientY;
+};
+canvas.onmousedown = ()=>pointer.down=true;
+canvas.onmouseup = ()=>{
+    pointer.down=false;
+    pointer.hold=0;
+    pointer.singularity=false;
+};
+canvas.ontouchstart=e=>{
+    pointer.down=true;
+    pointer.x=e.touches[0].clientX;
+    pointer.y=e.touches[0].clientY;
+};
+canvas.ontouchmove=e=>{
+    pointer.x=e.touches[0].clientX;
+    pointer.y=e.touches[0].clientY;
+};
+canvas.ontouchend=()=>{
+    pointer.down=false;
+    pointer.hold=0;
+    pointer.singularity=false;
+};
+
+/* =========================================================
+   UTILS
+========================================================= */
+const rnd=(a,b)=>Math.random()*(b-a)+a;
+const lerp=(a,b,t)=>a+(b-a)*t;
+const dist=(x1,y1,x2,y2)=>Math.hypot(x1-x2,y1-y2);
+
+/* =========================================================
+   FLOW FIELD
+========================================================= */
+const fieldScale = 0.002;
+function flow(x,y){
+    const n = Math.sin(x*fieldScale + t*0.002) +
+              Math.cos(y*fieldScale - t*0.001);
+    return n*Math.PI;
+}
+
+/* =========================================================
+   ENERGY RIBBONS
+========================================================= */
+class Ribbon{
+    constructor(){
+        this.reset();
+    }
+    reset(){
+        this.x = rnd(0,canvas.width);
+        this.y = rnd(0,canvas.height);
+        this.life = rnd(300,900);
+        this.hue = rnd(160,320);
+        this.w = rnd(0.5,2.5);
+    }
+    update(){
+        const a = flow(this.x,this.y);
+        this.x += Math.cos(a)*1.2;
+        this.y += Math.sin(a)*1.2;
+
+        const d = dist(this.x,this.y,pointer.x,pointer.y);
+        if(d<220){
+            const f=(220-d)/220;
+            this.x += (pointer.x-this.x)/d*f*2;
+            this.y += (pointer.y-this.y)/d*f*2;
+        }
+
+        this.life--;
+        if(this.life<=0) this.reset();
+    }
+    draw(){
+        ctx.strokeStyle=`hsla(${this.hue},100%,65%,0.4)`;
+        ctx.lineWidth=this.w;
+        ctx.beginPath();
+        ctx.lineTo(this.x,this.y);
+        ctx.lineTo(this.x-1,this.y-1);
+        ctx.stroke();
+    }
+}
+
+const ribbons=[];
+for(let i=0;i<600;i++){
+    ribbons.push(new Ribbon());
+}
+
+/* =========================================================
+   LIVING GEOMETRY (SPIROGRAPHS)
+========================================================= */
+function drawCathedral(){
+    const cx=canvas.width/2;
+    const cy=canvas.height/2;
+
+    for(let i=0;i<12;i++){
+        const r1=120+i*22;
+        const r2=60+i*9;
+        ctx.strokeStyle=`hsla(${(t+i*40)%360},100%,60%,0.35)`;
+        ctx.lineWidth=1.5;
+
+        ctx.beginPath();
+        for(let a=0;a<Math.PI*2;a+=0.03){
+            const x=cx+
+                Math.cos(a*(1+i*0.02)+t*0.002)*r1+
+                Math.cos(a*3+t*0.004)*r2;
+            const y=cy+
+                Math.sin(a*(1+i*0.02)+t*0.002)*r1+
+                Math.sin(a*2+t*0.003)*r2;
+            ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+    }
+}
+
+/* =========================================================
+   LIGHT TUNNEL
+========================================================= */
+function drawTunnel(){
+    const cx=canvas.width/2;
+    const cy=canvas.height/2;
+
+    for(let i=0;i<120;i++){
+        const z=i/120;
+        const r=lerp(40,canvas.width,z);
+        ctx.strokeStyle=`hsla(${200+z*120},100%,60%,${0.2*(1-z)})`;
+        ctx.lineWidth=2;
+        ctx.beginPath();
+        ctx.arc(
+            cx+Math.sin(t*0.002+z*4)*60,
+            cy+Math.cos(t*0.002+z*4)*60,
+            r,
+            0,
+            Math.PI*2
+        );
+        ctx.stroke();
+    }
+}
+
+/* =========================================================
+   SINGULARITY EFFECT
+========================================================= */
+function drawSingularity(){
+    const cx=pointer.x;
+    const cy=pointer.y;
+
+    for(let i=0;i<80;i++){
+        const a=i*0.3+t*0.05;
+        const r=i*3;
+        ctx.strokeStyle=`hsla(${300+i*2},100%,70%,0.4)`;
+        ctx.beginPath();
+        ctx.arc(cx,cy,r,0,Math.PI*2);
+        ctx.stroke();
+    }
+}
+
+/* =========================================================
+   MAIN LOOP
+========================================================= */
+function loop(){
+    t++;
+
+    ctx.fillStyle="rgba(0,0,0,0.15)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.save();
+    ctx.translate(
+        rnd(-camera.shake,camera.shake),
+        rnd(-camera.shake,camera.shake)
+    );
+
+    drawTunnel();
+    drawCathedral();
+
+    ribbons.forEach(r=>{
+        r.update();
+        r.draw();
+    });
+
+    if(pointer.down){
+        pointer.hold++;
+        camera.shake=4;
+        if(pointer.hold>120){
+            pointer.singularity=true;
+        }
+    }
+
+    if(pointer.singularity){
+        drawSingularity();
+    }
+
+    ctx.restore();
+    camera.shake*=0.9;
+
+    requestAnimationFrame(loop);
+}
+
+loop();
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  CICDEnv:
+    Type: String
+    Default: nonprod
+    AllowedValues:
+      - nonprod
+    Description: Enter Environment Name   
+
+  OpsDevEnv:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+    Description: Enter Ops Environment Name   
+
+  OpsQAEnv:
+    Type: String
+    Default: qa
+    AllowedValues:
+      - qa
+    Description: Enter Ops QA Environment Name
+
+  OpanDevEnv:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+    Description: Enter Opan Environment Name    
+
+  OpanQAEnv:
+    Type: String
+    Default: qa
+    AllowedValues:
+      - qa
+    Description: Enter Opan QA Environment Name    
+
+  GanttSTGEnv:
+    Type: String
+    Default: stage
+    AllowedValues:
+      - stage
+    Description: Enter Gantt Environment Name    
+
+  GanttQAEnv:
+    Type: String
+    Default: qa
+    AllowedValues:
+      - qa
+    Description: Enter Gantt QA Environment Name  
+
+  OpsDevAccountId:
+    Type: Number
+    Default: 062209676060
+    AllowedValues:
+      - 062209676060
+    Description: Ops Dev AccountID.
+
+  OpsQAAccountId:
+    Type: Number
+    Default: 363989954022
+    AllowedValues:
+      - 363989954022
+    Description: Ops QA AccountID.   
+
+  OpsProdAccountId:
+    Type: Number
+    Default: 991043543243
+    AllowedValues:
+      - 991043543243
+    Description: Ops Prod AccountID. 
+
+  OpanDevAccountId:
+    Type: Number
+    Default: 960562663163
+    AllowedValues:
+      - 960562663163
+    Description: Opan Dev AccountID.
+
+  OpanQAAccountId:
+    Type: Number
+    Default: 980536017713
+    AllowedValues:
+      - 980536017713
+    Description: Opan QA AccountID.
+
+  GanttSTGAccountId:
+    Type: Number
+    Default: 008685802560
+    AllowedValues:
+      - 008685802560
+    Description: Gantt STG AccountID.
+
+  GanttQAAccountId:
+    Type: Number
+    Default: 578244509084
+    AllowedValues:
+      - 578244509084
+    Description: Gantt QA AccountID.
+
+  AppGroup1:
+    Type: String
+    Default: ocs
+    AllowedValues:
+      - ocs
+    Description: Enter Application Group Name
+
+  AppGroup2:
+    Type: String
+    Default: ocsd
+    AllowedValues:
+      - ocsd
+    Description: Enter Application Group Name
+
+  AppGroup3:
+    Type: String
+    Default: route-opt
+    AllowedValues:
+      - route-opt
+    Description: Enter Application Group Name
+
+  AppGroup4:
+    Type: String
+    Default: csd
+    AllowedValues:
+      - csd
+    Description: Enter Application Group Name
+
+  AppGroup5:
+    Type: String
+    Default: gantt
+    AllowedValues:
+      - gantt
+    Description: Enter Application Group Name
+
+  AppGroup6:
+    Type: String
+    Default: sc
+    AllowedValues:
+      - sc
+    Description: Enter Application Group Name
+
+  AppGroup7:
+    Type: String
+    Default: smartcoaching
+    AllowedValues:
+      - smartcoaching
+    Description: Enter Application Group Name
+
+Resources:
+  IAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub buildpiper-${CICDEnv}-build-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole             
+
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      InstanceProfileName: !Sub buildpiper-${CICDEnv}-build-instance-profile
+      Roles:
+        - !Ref IAMRole    
+
+  STSAssumeRolePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub buildpiper-sts-assume-role-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Sid: VisualEditor0
+          Effect: Allow
+          Action: sts:AssumeRole
+          Resource: 
+            - !Sub arn:aws:iam::${OpsDevAccountId}:role/buildpiper-${AppGroup1}-${OpsDevEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsDevAccountId}:role/buildpiper-${AppGroup2}-${OpsDevEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsDevAccountId}:role/buildpiper-${AppGroup3}-${OpsDevEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsDevAccountId}:role/buildpiper-${AppGroup4}-${OpsDevEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsDevAccountId}:role/buildpiper-${AppGroup7}-${OpsDevEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpanDevAccountId}:role/buildpiper-${AppGroup3}-${OpanDevEnv}-deploy-role
+            - !Sub arn:aws:iam::${GanttSTGAccountId}:role/buildpiper-${AppGroup5}-${GanttSTGEnv}-deploy-role
+
+  STSAssumeRoleQAPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub buildpiper-sts-assume-role-qa-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Sid: VisualEditor0
+          Effect: Allow
+          Action: sts:AssumeRole
+          Resource: 
+            - !Sub arn:aws:iam::${OpsQAAccountId}:role/buildpiper-${AppGroup1}-${OpsQAEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsQAAccountId}:role/buildpiper-${AppGroup2}-${OpsQAEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsQAAccountId}:role/buildpiper-${AppGroup3}-${OpsQAEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsQAAccountId}:role/buildpiper-${AppGroup4}-${OpsQAEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpanQAAccountId}:role/buildpiper-${AppGroup3}-${OpanQAEnv}-deploy-role
+            - !Sub arn:aws:iam::${GanttQAAccountId}:role/buildpiper-${AppGroup5}-${GanttQAEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsProdAccountId}:role/buildpiper-${AppGroup1}-${GanttSTGEnv}-deploy-role
+            - !Sub arn:aws:iam::${OpsQAAccountId}:role/buildpiper-${AppGroup7}-${OpsQAEnv}-deploy-role

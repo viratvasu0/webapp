@@ -1,0 +1,85 @@
+name: CDK Deploy Prod
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  APP_DIR: ocs-eadm-data-consumer
+  AWS_REGION: us-east-1
+  ROLE_TO_ASSUME: arn:aws:iam::991043543243:role/buildpiper-ocs-prod-deploy-role
+
+jobs:
+  deploy:
+    name: Build and Deploy CDK
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout code (equivalent to clone_repo)
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.13.1'
+          cache: 'npm'
+
+      # 3️⃣ Install dependencies (NPM Install)
+      - name: Install Dependencies
+        working-directory: ${{ env.APP_DIR }}
+        run: npm install
+
+      # 4️⃣ Build CDK App (NPM Build)
+      - name: Build CDK Application
+        working-directory: ${{ env.APP_DIR }}
+        run: npm run cdk-build
+
+      # 5️⃣ Configure AWS Credentials (ASSUME ROLE)
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: github-actions-session
+
+      # 6️⃣ CDK Bootstrap check (safe guard)
+      - name: CDK Bootstrap (if needed)
+        working-directory: ${{ env.APP_DIR }}
+        run: npx cdk bootstrap || true
+
+      # 7️⃣ Deploy CDK (NPM Cdk Deploy)
+      - name: Deploy CDK Stack
+        working-directory: ${{ env.APP_DIR }}
+        run: npm run cdk-deploy-prod
+
+      # 8️⃣ Upload logs/artifacts (optional but useful)
+      - name: Archive CDK Output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdk-output
+          path: ${{ env.APP_DIR }}/cdk.out
+
+      # 9️⃣ Notify Success (Teams webhook equivalent)
+      - name: Notify Success
+        if: success()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{
+                "text": "✅ CDK Deployment SUCCESS\nRepo: ${{ github.repository }}\nBranch: ${{ github.ref_name }}"
+              }' \
+          ${{ secrets.TEAMS_WEBHOOK_URL }}
+
+      # 🔟 Notify Failure
+      - name: Notify Failure
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{
+                "text": "❌ CDK Deployment FAILED\nRepo: ${{ github.repository }}\nBranch: ${{ github.ref_name }}"
+              }' \
+          ${{ secrets.TEAMS_WEBHOOK_URL }}

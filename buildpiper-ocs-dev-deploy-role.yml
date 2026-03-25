@@ -1,0 +1,334 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  Env:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+    Description: Enter Ops Environment Name 
+  AppGroup:
+    Type: String
+    Default: ocs
+    AllowedValues:
+      - ocs
+    Description: Enter Application Group Name
+  CICDDVAccountId:
+    Type: Number
+    Default: 570525677283
+    AllowedValues: 
+        - 570525677283
+    Description: AWS AccountId of CICDDV account to be allowed to assume this role.
+  CICDPDAccountId:
+    Type: Number
+    Default: 521229397757
+    AllowedValues: 
+        - 521229397757
+    Description: AWS AccountId of CICDPD account to be allowed to assume this role.
+
+Resources:
+  IAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub buildpiper-${AppGroup}-${Env}-deploy-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: 
+              - !Sub arn:aws:iam::${CICDDVAccountId}:role/buildpiper-nonprod-build-role
+              - !Sub arn:aws:iam::${CICDPDAccountId}:role/buildpiper-prod-build-role
+              - !Sub arn:aws:iam::${CICDPDAccountId}:role/buildpiper-nonprod-build-role
+            Action: sts:AssumeRole          
+  ApigatewayPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: apigateway-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action: apigateway:*
+            Resource: "*"
+  CloudFormationPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: cloudformation-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+            Effect: Allow
+            Action:
+            - cloudformation:Create*
+            - cloudformation:Describe*
+            - cloudformation:Update*
+            - cloudformation:List*
+            - cloudformation:Detect*
+            - cloudformation:Execute*
+            - cloudformation:Get*
+            - cloudformation:RollbackStack
+            - cloudformation:ContinueUpdateRollback
+            - cloudformation:ImportStacksToStackSet
+            - cloudformation:Tag*
+            - cloudformation:CreateChangeSet
+            - cloudformation:DeleteChangeSet
+            - cloudformation:DescribeStacks
+            Resource:
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/CDK*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/ocs-gantt*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/ocs-web*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/ocs-eadm*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/ocs-route*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/ocs-ndo*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/ocs-ingress*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/cf-ocs*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/ocs-dev*
+            - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/ocs*
+  CloudFormationPolicyValidate:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: cloudformation-policy-validate
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+            Effect: Allow
+            Action:
+            - cloudformation:ValidateTemplate
+            Resource: "*"
+  DynamodbPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: Dynamodb-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - dynamodb:TagResource
+              - dynamodb:DescribeTable
+            Resource: "*"
+          - Effect: Allow
+            Action:
+              - dynamodb:Batch*
+              - dynamodb:Put*
+              - dynamodb:Update*
+              - dynamodb:Get*
+              - dynamodb:List*
+              - dynamodb:Create*
+              - dynamodb:Tag*
+              - dynamodb:Untag*
+            Resource:
+              - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/ocs-gantt*
+              - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/ocs-eadm*
+              - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/ocs*
+              - !Sub arn:aws:dynamodb:us-west-1:${AWS::AccountId}:table/ocs-eadm*
+              - !Sub arn:aws:dynamodb:us-west-1:${AWS::AccountId}:table/ocs-gantt*
+              - !Sub arn:aws:dynamodb:us-west-1:${AWS::AccountId}:table/ocs*
+
+  EC2Policy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: ec2-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action:
+              - ec2:DescribeSubnets
+            Resource:
+              - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/cf-ocs*
+  EventsPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: events-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action:
+              - events:DescribeRule
+              - events:PutRule
+              - events:PutTargets
+              - events:TagResource
+            Resource:
+              - !Sub arn:aws:events:${AWS::Region}:${AWS::AccountId}:rule/ocs*              
+  ECRPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: ecr-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action:
+              - ecr:*
+            Resource: "*"
+  CloudWatchLogsPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: cloudwatch-log-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action:
+              - logs:Tag*
+              - logs:Create*              
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+              - logs:Describe*
+              - logs:Describe*
+              - logs:PutRetentionPolicy
+            Resource:
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/ecs/ocs/*/aws-resourcecenter-node/event:*
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/ocs*:*
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/ocs*
+  IAMPassRolePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: iam-passrole-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - iam:PassRole
+              - iam:*Tag*
+              - iam:*tag*
+              - sts:AssumeRole
+            Resource:
+              - !Sub arn:aws:iam::${AWS::AccountId}:role/cdk*
+              - !Sub arn:aws:iam::${AWS::AccountId}:role/ocs*
+  KinesisPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: kinesis-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - Kinesis:DescribeStreamSummary
+              - Kinesis:RemoveTagsFromStream
+              - Kinesis:AddTagsToStream
+            Resource:
+              - !Sub arn:aws:kinesis:${AWS::Region}:${AWS::AccountId}:stream/ocs*
+  LambdaPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: Lambda-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - lambda:*
+            Resource: "*"
+  SSMPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: ssm-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - ssm:Get*
+              - logs:Describe*
+              - logs:ListTagsForResource
+            Resource: "*"
+  S3Policy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: s3-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:List*
+              - s3:Get*
+              - s3:Create*
+              - s3:Put*
+              - s3:Describe*
+              - s3:Update*
+              - s3:DeleteObject*
+            Resource: 
+              - arn:aws:s3:::cdk*
+              - arn:aws:s3:::ocs*
+              - arn:aws:s3:::*gantt*
+              - arn:aws:s3:::csd*
+              - arn:aws:s3:::bp*
+  SNSPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: sns-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action: sns:*
+            Resource: "*"
+  SQSPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: sqs-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action: sqs:*
+            Resource: "*"
+  CloudFrontPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: cloudfront-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - cloudfront:CreateInvalidation
+              - cloudfront:Get*
+              - cloudfront:List*
+              - cloudfront:Update*
+              - cloudfront:TagResource
+            Resource: "*"
+  WAFPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: wafv2-policy
+      Roles: [!Ref IAMRole]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: VisualEditor0
+            Effect: Allow
+            Action:
+              - wafv2:GetWebACLForResource
+              - wafv2:GetWebACL
+            Resource: 
+              - !Sub arn:aws:wafv2:${AWS::Region}:${AWS::AccountId}:regional/webacl/*/*

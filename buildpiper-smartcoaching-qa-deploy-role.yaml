@@ -1,0 +1,653 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  BuildPiper SC Deployment Role with grouped IAM Policies for Logs, S3, Secrets, KMS,
+  ECS, Lambda, DynamoDB, Step Functions, ECR, EC2, IAM, CloudFormation,
+  Events, and CloudWatch.
+
+Parameters:
+  Env:
+    Type: String
+    Default: qa
+    AllowedValues:
+      - qa
+    Description: Enter Ops Environment Name
+
+  AppGroup:
+    Type: String
+    Default: smartcoaching
+    AllowedValues:
+      - smartcoaching
+    Description: Enter Application Group Name
+
+  AppGroup2:
+    Type: String
+    Default: sc
+    AllowedValues:
+      - sc
+    Description: Enter Application Group Name  
+
+  CICDPDAccountId:
+    Type: Number
+    Default: 521229397757
+    Description: AWS Account ID of CICDPD account allowed to assume this role.
+
+Resources:
+
+  BuildPiperSCDeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub buildpiper-${AppGroup}-${Env}-deploy-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS:
+                - !Sub arn:aws:iam::${CICDPDAccountId}:role/buildpiper-prod-build-role
+                - !Sub arn:aws:iam::${CICDPDAccountId}:role/buildpiper-nonprod-build-role
+            Action: sts:AssumeRole
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+                - ecs-tasks.amazonaws.com
+                - sagemaker.amazonaws.com
+                - bedrock.amazonaws.com
+            Action: sts:AssumeRole
+      # Attach managed policies for large/commonly-reused permissions (prevents inline-size limit issues)
+      ManagedPolicyArns:
+        - !Ref BuildPiperSCECRManagedPolicy
+        - !Ref BuildPiperSCCloudWatchDashboardManagedPolicy
+        - !Ref BuildPiperSCIAMManagedPolicy
+
+  # ----------------- MANAGED POLICIES (moved big policies out of inline to avoid size limits) -----------------
+
+  BuildPiperSCECRManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: !Sub buildpiper-${AppGroup}-${Env}-ecr-managed-policy
+      Description: ECR permissions (repo management + image push/pull) as a managed policy to avoid inline size limits.
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - ecr:GetAuthorizationToken
+            Resource: "*"
+          - Effect: Allow
+            Action:
+              - ecr:Create*
+              - ecr:Describe*
+              - ecr:List*
+              - ecr:SetRepositoryPolicy
+              - ecr:Get*
+              - ecr:Put*
+              - ecr:ValidatePullThroughCacheRule
+              - ecr:TagResource
+              - ecr:UntagResource
+              - ecr:DeleteRepositoryPolicy
+            Resource:
+              - !Sub arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/${AppGroup}*
+              - !Sub arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/${AppGroup2}*
+          - Effect: Allow
+            Action:
+              - ecr:BatchCheckLayerAvailability
+              - ecr:InitiateLayerUpload
+              - ecr:UploadLayerPart
+              - ecr:CompleteLayerUpload
+              - ecr:PutImage
+              - ecr:BatchGetImage
+              - ecr:DescribeImages
+              - ecr:ListImages
+            Resource:
+              - !Sub arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/${AppGroup}*
+              - !Sub arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/${AppGroup2}*
+
+  BuildPiperSCCloudWatchDashboardManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: !Sub buildpiper-${AppGroup}-${Env}-cloudwatch-dashboard-managed-policy
+      Description: CloudWatch dashboard permissions as managed policy to avoid inline size limits.
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - cloudwatch:PutDashboard
+              - cloudwatch:GetDashboard
+              - cloudwatch:ListDashboards
+            Resource:
+              - !Sub arn:aws:cloudwatch::${AWS::AccountId}:dashboard/${AppGroup}-*
+              - !Sub arn:aws:cloudwatch::${AWS::AccountId}:dashboard/${AppGroup2}-*
+              - !Sub arn:aws:cloudwatch::${AWS::AccountId}:dashboard/${Env}-*
+              - !Sub arn:aws:cloudwatch::${AWS::AccountId}:dashboard/${AppGroup}-${Env}-*
+
+  BuildPiperSCIAMManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: !Sub buildpiper-${AppGroup}-${Env}-iam-managed-policy
+      Description: IAM related permissions as managed policy to avoid inline size limits.
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - iam:PassRole
+              - iam:*Tag*
+              - iam:GetRole
+            Resource:
+              - !Sub arn:aws:iam::${AWS::AccountId}:role/${AppGroup}*
+              - !Sub arn:aws:iam::${AWS::AccountId}:role/${AppGroup2}*
+
+  # ----------------- LOGS -----------------
+  BuildPiperSCLogsPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-logs-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - logs:TagLogGroup
+              - logs:UntagLogGroup
+              - logs:*Tag*
+              - logs:Get*
+              - logs:Put*
+              - logs:List*
+              - logs:Describe*
+              - logs:Update*
+              - logs:DeleteSubscriptionFilter
+              - logs:CreateLogGroup
+              - logs:CreateLogDelivery
+              - logs:CreateLogStream
+            Resource:
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${AppGroup}-*
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:*${AppGroup}*
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${AppGroup2}-*
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:*${AppGroup2}*
+
+  # ----------------- S3 -----------------
+  BuildPiperSCS3Policy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-s3-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - s3:List*
+              - s3:Get*
+              - s3:Put*
+              - s3:GetBucketLocation
+              - s3:CreateBucket
+            Resource:
+              - !Sub arn:aws:s3:::${AppGroup}-*
+              - !Sub arn:aws:s3:::${AppGroup2}-*
+          - Effect: Allow
+            Action:
+              - s3:GetObject
+              - s3:PutObject
+              - s3:AbortMultipartUpload
+            Resource:
+              - !Sub arn:aws:s3:::${AppGroup}-*/* 
+              - !Sub arn:aws:s3:::${AppGroup2}-*/*
+
+  # ----------------- SECRETS -----------------
+  BuildPiperSCSecretsPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-secrets-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - secretsmanager:GetSecretValue
+              - secretsmanager:DescribeSecret
+            Resource:
+              - !Sub arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${AppGroup}-*
+              - !Sub arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${AppGroup2}-*
+
+  # ----------------- KMS -----------------
+  BuildPiperSCKMSPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-kms-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - kms:Decrypt
+              - kms:GenerateDataKey
+            Resource:
+              - !Sub arn:aws:kms:${AWS::Region}:${AWS::AccountId}:key/*
+            Condition:
+              StringEquals:
+                kms:ViaService:
+                  - !Sub s3.${AWS::Region}.amazonaws.com
+                  - !Sub secretsmanager.${AWS::Region}.amazonaws.com
+                  - !Sub logs.${AWS::Region}.amazonaws.com
+                  - !Sub firehose.${AWS::Region}.amazonaws.com
+
+  # ----------------- ECS -----------------
+  BuildPiperSCECSPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-ecs-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - ecs:Describe*
+              - ecs:Get*
+              - ecs:DeregisterTaskDefinition
+            Resource: "*"   # Required for Describe and Get actions
+
+          - Effect: Allow
+            Action:
+              - ecs:List*
+              - ecs:Create*
+              - ecs:Update*
+              - ecs:Register*
+              - ecs:Untag*
+              - ecs:Put*
+              - ecs:Tag*
+            Resource:
+              - !Sub arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:cluster/${AppGroup}-*
+              - !Sub arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:cluster/${AppGroup2}-*
+              - !Sub arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:service/${AppGroup}-*
+              - !Sub arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:service/${AppGroup2}-*
+              - !Sub arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:task-definition/${AppGroup}-*
+              - !Sub arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:task-definition/${AppGroup2}-*
+
+  # ----------------- ELASTIC LOADBALANCING -----------------
+  BuildPiperSCTargetGroupPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-targetgroup-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - elasticloadbalancing:Describe*
+              - elasticloadbalancing:Get*
+            Resource: "*"   # Required for Describe and Get actions
+
+          - Effect: Allow
+            Action:
+              - elasticloadbalancing:Create*
+              - elasticloadbalancing:Modify*
+              - elasticloadbalancing:RegisterTargets
+              - elasticloadbalancing:DeregisterTargets
+              - elasticloadbalancing:SetRulePriorities
+              - elasticloadbalancing:CreateListener
+              - elasticloadbalancing:CreateListenerRule
+              - elasticloadbalancing:ModifyListener
+            Resource:
+              - !Sub arn:aws:elasticloadbalancing:${AWS::Region}:${AWS::AccountId}:loadbalancer/app/${AppGroup}-*
+              - !Sub arn:aws:elasticloadbalancing:${AWS::Region}:${AWS::AccountId}:loadbalancer/app/${AppGroup2}-*
+              - !Sub arn:aws:elasticloadbalancing:${AWS::Region}:${AWS::AccountId}:targetgroup/${AppGroup}-*
+              - !Sub arn:aws:elasticloadbalancing:${AWS::Region}:${AWS::AccountId}:targetgroup/${AppGroup2}-*
+              - !Sub arn:aws:elasticloadbalancing:${AWS::Region}:${AWS::AccountId}:listener/${AppGroup}-*
+              - !Sub arn:aws:elasticloadbalancing:${AWS::Region}:${AWS::AccountId}:listener/${AppGroup2}-*
+
+  # ----------------- AutoScaling -----------------
+  BuildPiperSCAppAutoScalingPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-app-autoscaling-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - application-autoscaling:Describe*
+              - application-autoscaling:Get*
+              - application-autoscaling:RegisterScalableTarget
+              - application-autoscaling:DeregisterScalableTarget
+              - application-autoscaling:PutScalingPolicy
+              - application-autoscaling:UpdateScalingPolicy
+              - application-autoscaling:TagResource
+              - application-autoscaling:UntagResource
+            Resource: "*"   # * Required for these actions
+
+  # ----------------- LAMBDA -----------------
+  BuildPiperSCLambdaPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-lambda-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - lambda:Add*
+              - lambda:Create*
+              - lambda:List*
+              - lambda:Publish*
+              - lambda:Put*
+              - lambda:Update*
+              - lambda:*Tag*
+              - lambda:Get*
+              - lambda:*EventSourceMapping*
+              - lambda:*Permission*
+              - lambda:TagResource
+              - lambda:UntagResource
+              - lambda:DeleteLayerVersion
+              - lambda:InvokeFunction
+              - lambda:GetLayerVersion
+              - lambda:ListLayerVersions
+              - lambda:InvokeAsync
+            Resource:
+              - !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${AppGroup}-*'
+              - !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${AppGroup2}-*'
+              - !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:*'
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${AppGroup}-*
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:*${AppGroup}*
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${AppGroup2}-*
+              - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:*${AppGroup2}*
+
+  # ----------------- DYNAMODB -----------------
+  BuildPiperSCDynamoDBPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-dynamodb-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - dynamodb:Create*
+              - dynamodb:Describe*
+              - dynamodb:List*
+              - dynamodb:Get*
+              - dynamodb:Query
+              - dynamodb:Scan
+              - dynamodb:Put*
+              - dynamodb:Batch*
+              - dynamodb:*Tag*
+              - dynamodb:Untag*
+              - dynamodb:Update*
+              - dynamodb:TagResource
+              - dynamodb:UntagResource
+            Resource: 
+              - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${AppGroup}-*
+              - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${AppGroup2}-*
+
+  # ----------------- STEP FUNCTIONS -----------------
+  BuildPiperSCStepFuncPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-stepfunc-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - states:CreateStateMachine
+              - states:UpdateStateMachine
+              - states:TagResource
+              - states:UntagResource
+              - states:DescribeStateMachine
+              - states:StartExecution
+            Resource:
+              - !Sub arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${AppGroup}-*
+              - !Sub arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${AppGroup2}-*
+
+  # ----------------- EC2 -----------------
+  BuildPiperSCEC2Policy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-ec2-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - ec2:CreateNetworkInterface
+              - ec2:AssignPrivateIpAddresses
+              - ec2:UnassignPrivateIpAddresses
+              - ec2:Describe*
+              - ec2:Get*
+              - ec2:CreateSecurityGroup
+            Resource: "*"
+
+  # ----------------- CLOUDFORMATION -----------------
+  BuildPiperSCCloudFormationPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-cloudformation-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action: cloudformation:ValidateTemplate
+            Resource: "*"
+
+          - Effect: Allow
+            Action:
+              - cloudformation:Create*
+              - cloudformation:Describe*
+              - cloudformation:Update*
+              - cloudformation:List*
+              - cloudformation:Detect*
+              - cloudformation:Execute*
+              - cloudformation:Get*
+              - cloudformation:RollbackStack
+              - cloudformation:ContinueUpdateRollback
+              - cloudformation:ImportStacksToStackSet
+              - cloudformation:*Tag*
+              - cloudformation:DeleteChangeSet
+            Resource:
+              - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AppGroup}-*
+              - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AppGroup2}-*
+
+  # ----------------- EVENTS -----------------
+  BuildPiperSCEventsPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-events-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - events:ActivateEventSource
+              - events:EnableRule
+              - events:Put*
+              - events:StartReplay
+              - events:*Tag*
+              - events:Update*
+              - events:Create*
+              - events:Describe*
+              - events:List*
+            Resource:
+              - !Sub arn:aws:events:${AWS::Region}:${AWS::AccountId}:rule/${AppGroup}-*
+              - !Sub arn:aws:events:${AWS::Region}:${AWS::AccountId}:rule/${AppGroup2}-*
+              - !Sub arn:aws:events:${AWS::Region}:${AWS::AccountId}:rule/fetch-*
+
+  # ----------------- CLOUDWATCH (alarms/metrics/streams) -----------------
+  BuildPiperSCCloudWatchPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-cloudwatch-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - cloudwatch:Describe*
+              - cloudwatch:Enable*
+              - cloudwatch:Get*
+              - cloudwatch:List*
+              - cloudwatch:Put*
+              - cloudwatch:Update*
+              - cloudwatch:SetAlarmState
+              - cloudwatch:StartMetricStreams
+              - cloudwatch:StopMetricStreams
+              - cloudwatch:TagResource
+              - cloudwatch:UntagResource
+            Resource:
+              - !Sub arn:aws:cloudwatch:${AWS::Region}:${AWS::AccountId}:alarm:${AppGroup}-*
+              - !Sub arn:aws:cloudwatch:${AWS::Region}:${AWS::AccountId}:alarm:${AppGroup2}-*
+
+  # ----------------- FIREHOSE -----------------
+  BuildPiperSCFirehosePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-firehose-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - firehose:CreateDeliveryStream
+              - firehose:DescribeDeliveryStream
+              - firehose:ListDeliveryStreams
+              - firehose:PutRecord
+              - firehose:PutRecordBatch
+              - firehose:UpdateDestination
+              - firehose:*Tag*
+              - firehose:Untag*
+              - tag:*Tag*
+              - tag:Untag*
+            Resource:
+              - !Sub arn:aws:firehose:${AWS::Region}:${AWS::AccountId}:deliverystream/${AppGroup}-*
+              - !Sub arn:aws:firehose:${AWS::Region}:${AWS::AccountId}:deliverystream/${AppGroup2}-*
+
+  # ----------------- BEDROCK -----------------
+  BuildPiperSCBedrockPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-bedrock-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+            - bedrock:ListPrompts
+            Resource: "*"
+          - Effect: Allow
+            Action:
+              - bedrock:GetPrompt
+              - bedrock:UpdatePrompt
+              - bedrock:CreatePromptVersion
+            Resource:
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/R9L0VL7NND
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/P1R9QTFPEN
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/0D6T0MP4B2
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/YT1BT1SFUC
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/5LQAGUHJ3Q
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/R9L0VL7NND:*
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/P1R9QTFPEN:*
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/0D6T0MP4B2:*
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/YT1BT1SFUC:*
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:prompt/5LQAGUHJ3Q:*
+              - !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:application-inference-profile/*
+
+# ----------------- SSM -----------------
+  BuildPiperSCSSMPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-ssm-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - ssm:Get*
+              - ssm:List*
+              - ssm:Describe*
+            Resource: "*"  # Required for Describe and Get actions
+
+          - Effect: Allow
+            Action:
+              - ssm:PutParameter
+              - ssm:LabelParameterVersion
+              - ssm:AddTagsToResource
+              - ssm:RemoveTagsFromResource
+              - ssm:TagResource
+              - ssm:UntagResource
+            Resource:
+              - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${AppGroup}*
+              - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${AppGroup2}*
+# ----------------- SNS -----------------
+  BuildPiperSCSNSPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: buildpiper-sc-sns-policy
+      Roles:
+        - !Ref BuildPiperSCDeployRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - sns:Get*
+              - sns:List*
+            Resource: "*"
+          - Effect: Allow
+            Action:
+              - sns:CreateTopic
+              - sns:DeleteTopic
+              - sns:GetTopicAttributes
+              - sns:SetTopicAttributes
+              - sns:TagResource
+              - sns:UntagResource
+              - sns:Publish
+            Resource:
+              - !Sub arn:aws:sns:${AWS::Region}:${AWS::AccountId}:${AppGroup}-*
+              - !Sub arn:aws:sns:${AWS::Region}:${AWS::AccountId}:${AppGroup2}-*
+          # Subscription lifecycle 
+          - Effect: Allow
+            Action:
+              - sns:Subscribe
+              - sns:Unsubscribe
+            Resource:
+              - !Sub arn:aws:sns:${AWS::Region}:${AWS::AccountId}:${AppGroup}-*
+              - !Sub arn:aws:sns:${AWS::Region}:${AWS::AccountId}:${AppGroup2}-*
+
+
+Outputs:
+  RoleName:
+    Description: Name of the BuildPiper deploy role
+    Value: !Ref BuildPiperSCDeployRole

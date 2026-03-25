@@ -1,0 +1,2332 @@
+WEBVTT
+
+6214a73f-437a-4076-b6a1-df1429e1789a-0
+00:00:04.880 --> 00:00:09.720
+Have you shared that database address to
+Joseph?
+
+82c23b0b-9458-4a4d-b0f5-71039896517c-0
+00:00:10.520 --> 00:00:13.800
+Because it might need to update somewhere
+in the configurations.
+
+10e55f89-727d-4e98-8be8-4c78c0bb781c-0
+00:00:15.600 --> 00:00:19.378
+Yeah,
+just if you have the endpoints or or else
+
+10e55f89-727d-4e98-8be8-4c78c0bb781c-1
+00:00:19.378 --> 00:00:20.480
+I'll share it.
+
+6399db62-36e0-46c3-ab8f-02749adeb42a-0
+00:00:22.000 --> 00:00:23.520
+This is the endpoint, right?
+
+62bf5c76-76de-4990-8633-05a95980a188-0
+00:00:23.520 --> 00:00:24.520
+Can you see my screen?
+
+58c819a5-f390-4a3d-9a4c-b6a293be668c-0
+00:00:25.120 --> 00:00:26.720
+Yeah, perfect.
+
+5c81be17-d923-481e-83a0-4dea533ee8eb-0
+00:00:27.440 --> 00:00:33.880
+So we we used, you know which endpoint?
+
+c35a4532-f08e-4bb3-85a5-674bf6f1b970-0
+00:00:35.360 --> 00:00:35.920
+The writer.
+
+0a3cc3d1-9e9a-4be4-a976-0a85f9f5409c-0
+00:00:36.000 --> 00:00:40.600
+OK, let me see what Adam shared with me.
+
+ebd6012d-d2be-48d5-b3a3-4cd1e307e9bf-0
+00:00:42.600 --> 00:00:44.480
+I'm, I'm putting it in the chat again.
+
+b9e3ab6f-e53e-4e10-be9b-634202564a50-0
+00:00:49.600 --> 00:00:51.400
+I think this would be the writer.
+
+ff0190c6-7acd-4fc3-b9f7-53176a40d722-0
+00:00:57.040 --> 00:00:58.560
+Yeah, that's the first one.
+
+88fa059b-d6b8-417b-9130-ff16da2db52c-0
+00:01:05.360 --> 00:01:10.188
+I think the first end point is what
+Pratig is mentioning Joseph,
+
+88fa059b-d6b8-417b-9130-ff16da2db52c-1
+00:01:10.188 --> 00:01:12.120
+it says right, right type.
+
+9d7eb81b-eeab-4336-81db-e9f7fc911afa-0
+00:01:14.040 --> 00:01:15.920
+Yeah, this one right, yes.
+
+878946ef-2c49-4226-a892-86914f83a92a-0
+00:01:18.640 --> 00:01:23.585
+And I need all the S the elastic to let
+me look at the Yeah,
+
+878946ef-2c49-4226-a892-86914f83a92a-1
+00:01:23.585 --> 00:01:27.640
+I think we can copy this in somewhere in
+notepad.
+
+0202cbc0-d01f-4720-99ea-3dba2b1d8419-0
+00:01:27.720 --> 00:01:32.120
+It might be using it some later point.
+
+4906dd61-e6bf-4dee-9c87-39900b1a6e8d-0
+00:01:32.920 --> 00:01:38.080
+So service account username and password
+were already shared I think on Friday.
+
+5ea72252-68fc-4b11-bf3d-7eb7079813c1-0
+00:01:38.080 --> 00:01:39.720
+So you guys already have it right?
+
+c19b8f5e-9f38-4fb7-9452-e9adb12facaa-0
+00:01:41.080 --> 00:01:42.960
+I think they were shared with Joseph as
+well.
+
+df381113-e60e-44ad-879a-a46517801b58-0
+00:01:42.960 --> 00:01:55.633
+If I'm not wrong to configure you are are
+you talking about the we did some update
+
+df381113-e60e-44ad-879a-a46517801b58-1
+00:01:55.633 --> 00:02:00.520
+in in production already, right?
+
+3874b600-ce69-40b8-9d36-94e5aae11471-0
+00:02:00.920 --> 00:02:02.680
+Yes, yes, yes, yeah.
+
+b38b01be-6b41-41e2-8469-71a4f662e443-0
+00:02:02.680 --> 00:02:05.280
+So this should already be in there.
+
+78450ac7-17f2-4a67-802f-89c4897473e5-0
+00:02:06.040 --> 00:02:07.040
+Yeah, right.
+
+324084a9-1847-427d-994d-d126c22f3978-0
+00:02:13.200 --> 00:02:19.320
+So let's look at the issue already be in
+the.
+
+55241aca-cebf-4ad8-836e-04ee836db4ac-0
+00:02:40.320 --> 00:02:43.848
+Yeah,
+we we update the the the user and the the
+
+55241aca-cebf-4ad8-836e-04ee836db4ac-1
+00:02:43.848 --> 00:02:45.760
+encrypted password, right?
+
+96090582-429c-4b3e-a01d-82d0c6706bbe-0
+00:02:48.040 --> 00:02:58.010
+We already update the database endpoint
+and and yeah, So what,
+
+96090582-429c-4b3e-a01d-82d0c6706bbe-1
+00:02:58.010 --> 00:03:01.650
+what next are we doing?
+
+a481e2d2-f6b7-40e2-938d-6687ebffef5c-0
+00:03:01.930 --> 00:03:03.530
+OK, OK, fine.
+
+348b9e4d-f414-48ae-ab61-fd15f7c5cf50-0
+00:03:03.770 --> 00:03:05.290
+Just exit out from this file.
+
+e7c9f7f4-6172-40d4-98e2-a57fb0289892-0
+00:03:12.240 --> 00:03:15.840
+So have we copied this file to copy this
+file API file?
+
+37c4dce5-aadb-4713-beb9-72942c67ecb7-0
+00:03:17.280 --> 00:03:25.181
+OK, OK, it's it's I think,
+I think we update on here and we update
+
+37c4dce5-aadb-4713-beb9-72942c67ecb7-1
+00:03:25.181 --> 00:03:28.720
+on deployable type properties.
+
+beb3a9d0-3ee3-4ec3-9e38-c80df424485e-0
+00:03:28.720 --> 00:03:31.440
+Yeah, yeah, you get that too.
+
+89af898e-eb40-4927-a5c3-9a7129b05b20-0
+00:03:33.640 --> 00:03:34.280
+OK, fine.
+
+fa534a5c-ec44-4c69-a40b-bc17f39c94ca-0
+00:03:34.760 --> 00:03:36.440
+And what about env dot Jason?
+
+cbe0b648-35ab-43df-bbac-81e2bb1d6dc6-0
+00:03:39.560 --> 00:03:43.360
+We update both both our last Friday.
+
+1915f3f2-8b1f-4b5e-872c-d85c34f0bc92-0
+00:03:44.120 --> 00:03:46.080
+OK, can you do docker PS?
+
+d7b5e6e3-69b8-4c8f-981f-148512d0dd37-0
+00:03:47.920 --> 00:03:48.920
+OK, fine, perfect.
+
+a8c5e068-2486-4046-a0db-2b2a0dfcdf95-0
+00:03:48.960 --> 00:03:52.600
+Yeah, OK.
+
+e6549afd-4abb-4264-b673-be247e7b6b0c-0
+00:03:56.200 --> 00:04:00.591
+I think last,
+I think last time was you run that
+
+e6549afd-4abb-4264-b673-be247e7b6b0c-1
+00:04:00.591 --> 00:04:07.492
+command and we're we copied the license
+over the build setup is completed on
+
+e6549afd-4abb-4264-b673-be247e7b6b0c-2
+00:04:07.492 --> 00:04:08.119
+master.
+
+daff975f-6cbb-442d-a95b-2f1718169f82-0
+00:04:08.440 --> 00:04:13.640
+We update the the master,
+I mean we update the license here and we
+
+daff975f-6cbb-442d-a95b-2f1718169f82-1
+00:04:13.640 --> 00:04:18.840
+dial the compose and up and then I think
+that's where we left off.
+
+a6567a37-0968-42d7-a881-af6951206017-0
+00:04:20.080 --> 00:04:23.880
+OK,
+can we try and log in to the master VM?
+
+d8fd5866-9bd2-4f11-b0ca-ea14e2d341ec-0
+00:04:26.320 --> 00:04:27.440
+Do you have the access?
+
+bfb36fb1-cf39-4f9c-a538-44b6aba421da-0
+00:04:28.320 --> 00:04:33.560
+So we got no new DB endpoints, right?
+
+94d31d9f-fff9-40f8-9ca1-dd39182da280-0
+00:04:34.120 --> 00:04:37.360
+So no, no, the VBN point does not change.
+
+3a07067c-14ae-4a95-bda4-cf6f7056132c-0
+00:04:37.360 --> 00:04:39.960
+We just change the the capacity.
+
+2fe43634-a057-496a-bdbc-80e3866f3d37-0
+00:04:40.960 --> 00:04:46.160
+OK,
+So do we need to restart the components?
+
+ae4e53e7-8db9-416d-937a-7b69b8e20687-0
+00:04:46.280 --> 00:04:46.720
+Can you?
+
+d36a5324-00b2-43d9-aa65-6fc93dae04f2-0
+00:04:46.880 --> 00:04:47.200
+Yes.
+
+2997c3b6-c957-4ac7-a928-2e815340b9fe-0
+00:04:47.200 --> 00:04:49.920
+Can you remove the docker, Docker?
+
+d72bec54-c00a-49fb-9754-b4e5a589a4bc-0
+00:04:49.920 --> 00:04:53.240
+I'll just give the command,
+just remove the container and restart it.
+
+ade2f127-136b-4a65-8b33-bb17a20a71f3-0
+00:04:53.800 --> 00:04:59.640
+Let's see and Docker one second Docker.
+
+9a99a438-5d6b-417a-9831-dde3ec1057d8-0
+00:05:06.200 --> 00:05:11.920
+UP-G you have to go to the main folder.
+
+127d2c6a-badb-45af-89e0-10a6746a74e8-0
+00:05:12.480 --> 00:05:18.000
+Now deploy build Viber and just remove
+docker.
+
+2782f219-70a2-4c63-ac9f-2447da4b51dd-0
+00:05:18.200 --> 00:05:20.560
+RM- has given the details on the chat.
+
+4ee4e8ec-a6c2-4020-bcdb-f2d169807c70-0
+00:06:55.040 --> 00:06:55.800
+OK, fine.
+
+eec287a3-558a-4176-beb2-8e15457120a8-0
+00:06:55.840 --> 00:06:56.040
+Yeah.
+
+df43e94b-8672-4a33-8d37-f526de9140e8-0
+00:06:58.040 --> 00:07:01.360
+Cabridge,
+can you check if the front end is up?
+
+7e61d983-573b-4389-99dc-432c71ee28ff-0
+00:07:01.800 --> 00:07:02.800
+Are you able to log in?
+
+c0ba059e-f685-45ef-9864-305db1fb625b-0
+00:07:03.520 --> 00:07:07.564
+So before that,
+before that we need to create target
+
+c0ba059e-f685-45ef-9864-305db1fb625b-1
+00:07:07.564 --> 00:07:09.320
+group on load balancer.
+
+b90e5a58-8cfb-4ecd-9551-0dee5adc0c9c-0
+00:07:09.640 --> 00:07:12.320
+Joseph, OK.
+
+10f2f53b-18e8-42a4-9482-6795f87e5317-0
+00:07:40.920 --> 00:07:46.080
+So we have this targets group,
+that's the only one, right?
+
+32f3dab6-80fc-4303-b392-e82f7fec03ad-0
+00:07:47.560 --> 00:07:47.960
+Yes.
+
+656b71e9-c217-4bf6-a02c-0582dccce6b9-0
+00:07:48.760 --> 00:07:53.080
+Which targets group which what else that
+we need to create?
+
+b5f75420-041d-4bb6-9647-13f9cf9a65c3-0
+00:07:54.560 --> 00:08:00.320
+So same as we created in the for the dev
+setup this one.
+
+245f3557-60b8-42dc-a274-92ed94ed1e47-0
+00:08:01.200 --> 00:08:04.912
+Yeah,
+same 2 target Group 1 is for UI and one
+
+245f3557-60b8-42dc-a274-92ed94ed1e47-1
+00:08:04.912 --> 00:08:05.800
+is for API.
+
+cfe7c449-bd7c-4d3d-98fb-d2e450d0d64e-0
+00:08:06.520 --> 00:08:10.000
+So same we need to get on production for
+production city.
+
+186b5b74-81bc-48c9-9025-108a9f74b356-0
+00:08:10.160 --> 00:08:14.120
+I think they're already created because
+when you'll see at.
+
+2cdfd004-623b-4a66-81a2-3a8ea9cae7a7-0
+00:08:14.680 --> 00:08:16.200
+Can you go back, Joseph?
+
+ad7f41a7-d068-4cdb-a6cb-cd8fdb30a789-0
+00:08:16.720 --> 00:08:17.360
+Just one second.
+
+d5bc3afb-a1c2-430d-86af-219b6df97b7d-0
+00:08:18.240 --> 00:08:20.440
+See they what they told us.
+
+ad83b908-afd1-44cb-8197-ba43bf55ba49-0
+00:08:21.000 --> 00:08:26.960
+OK, everything that OK, OK Dev Yeah, OK.
+
+bdf16c4f-be95-41d0-ab03-5a0b90b10d10-0
+00:08:27.280 --> 00:08:32.979
+Yeah,
+I'm gonna create a it's always good for
+
+bdf16c4f-be95-41d0-ab03-5a0b90b10d10-1
+00:08:32.979 --> 00:08:43.016
+Bill for production city hyper Dash API
+with no and then the port would be 9001,
+
+bdf16c4f-be95-41d0-ab03-5a0b90b10d10-2
+00:08:43.016 --> 00:08:43.759
+right?
+
+a9fddfde-0055-444f-9d93-f28c0e998972-0
+00:08:44.400 --> 00:08:45.320
+Yes, got the car.
+
+d7090652-1e3f-4572-9cf4-5327641da092-0
+00:08:45.360 --> 00:08:46.080
+That's correct.
+
+9341900d-ed01-4f14-8525-6c746ba148e5-0
+00:08:46.920 --> 00:08:58.747
+And then health check would be what could
+be health check is that let me share the
+
+9341900d-ed01-4f14-8525-6c746ba148e5-1
+00:08:58.747 --> 00:09:00.600
+APV yeah API.
+
+4608cd13-3c33-4216-820f-695a43dc091b-0
+00:09:00.600 --> 00:09:02.200
+I think they will be shared.
+
+369c5291-1c0b-450e-9d79-8b51a3c16493-0
+00:09:27.670 --> 00:09:29.030
+Are you sharing that API?
+
+5a5a5c82-a6b3-42d7-ab20-0e70e5161144-0
+00:09:29.350 --> 00:09:29.710
+You are.
+
+f55d1105-80ea-4b4b-8c9b-65b624f09de7-0
+00:11:14.560 --> 00:11:18.320
+So this is this should be a host header,
+correct?
+
+17aa5fb8-a444-4f3e-8dbe-a5d4fb8dcedc-0
+00:11:59.800 --> 00:12:01.040
+OK, it's healthy now.
+
+e574e273-783a-4aaf-9a41-b80eeae32447-0
+00:12:02.440 --> 00:12:02.840
+OK.
+
+ed42cfc7-38b2-4cd6-97b6-941823e01681-0
+00:12:03.560 --> 00:12:11.480
+Can you check on your browser also
+coverage?
+
+df931230-66b9-4094-8757-9c04c35969e8-0
+00:12:11.480 --> 00:12:15.880
+Let me share my screen so that you can
+share.
+
+896f0137-c301-436b-b43b-89061674a1c4-0
+00:12:17.320 --> 00:12:18.800
+Yeah, let me log in.
+
+3c6c3066-b6bf-4084-a306-ef14d8ffa236-0
+00:12:20.280 --> 00:12:20.920
+Give me a minute.
+
+66ccbc52-fbac-4e19-bea0-7b4508a9ba14-0
+00:12:55.360 --> 00:12:58.800
+It's showing 503 service temporary
+unavailable.
+
+ded52021-ea27-4d99-8aca-d8975e88d856-0
+00:12:59.880 --> 00:13:01.320
+Share your screen please.
+
+d03f9f1d-dada-40b7-8937-0559dfd4c773-0
+00:13:16.640 --> 00:13:18.400
+OK are you using any V pins?
+
+441bb5a3-1acd-4aa3-9da1-2db6f05d0d1f-0
+00:13:19.920 --> 00:13:20.400
+No.
+
+255ea5eb-b132-4502-9dcd-2c1bb25cf4bc-0
+00:13:21.120 --> 00:13:21.520
+OK.
+
+2e9af977-18cb-482c-881f-36dbbcfe5517-0
+00:13:21.720 --> 00:13:23.520
+Do we need to use any VPN here?
+
+a967fce2-ba9b-41bd-894d-b9eea98d5357-0
+00:13:24.320 --> 00:13:26.560
+No, we I'm using the VDI.
+
+8f0aff6a-fd08-45d3-af37-53826e5b3091-0
+00:13:28.600 --> 00:13:29.000
+OK.
+
+328347de-2143-4832-8b13-9adcf05e35a3-0
+00:13:31.040 --> 00:13:33.720
+Is the Can you dig this?
+
+ce71035a-ec11-4fbe-a3f0-d92be59c8484-0
+00:13:35.320 --> 00:13:40.600
+Go to the they-, you.
+
+e417c6cf-7618-4e08-99df-a0bc8b9eb608-0
+00:14:09.840 --> 00:14:10.520
+Hey, that.
+
+74fe85b1-c6e6-447e-8d48-cd731690c85f-0
+00:14:10.920 --> 00:14:14.400
+Hey,
+that target group doesn't have any server.
+
+7fc4a348-9680-4577-9432-56493fd50e71-0
+00:14:14.400 --> 00:14:16.800
+Let me let me register that server first.
+
+1ed3b99a-cee4-4b42-8a3e-1f809c5aa895-0
+00:14:17.440 --> 00:14:20.480
+Yeah, please.
+
+4723a38b-661c-4a38-a948-b32bf57f1184-0
+00:14:33.850 --> 00:14:35.930
+OK, give it a few minutes for that to.
+
+0140be67-284a-4cac-8cef-1cb971cbdbc9-0
+00:14:35.930 --> 00:14:38.170
+Yeah, take your time.
+
+b7d2fba7-e7d3-4578-b38d-6db0036e3e00-0
+00:14:38.170 --> 00:14:40.810
+Just OK.
+
+b76b5721-d23e-43e4-87ed-7963349ec852-0
+00:14:40.850 --> 00:14:42.610
+It's so healthy now.
+
+d627e1d1-de50-48d3-a8c6-64e067975c2a-0
+00:14:42.610 --> 00:14:49.800
+Can you try you get up just OK.
+
+cd7c1a1b-b288-4feb-9fa8-c26998410092-0
+00:14:50.760 --> 00:14:52.360
+You should get the login form now.
+
+51b054c1-ec3f-4bf1-b086-0aacd7991dfb-0
+00:14:54.600 --> 00:14:56.720
+I try it on my side as I login form.
+
+af9a09f7-2fc3-4a78-a720-d05525306ce9-0
+00:14:57.960 --> 00:15:00.982
+Yeah,
+actually the system is a bit slow at his
+
+af9a09f7-2fc3-4a78-a720-d05525306ce9-1
+00:15:00.982 --> 00:15:01.240
+end.
+
+5acea90f-2215-447f-94ca-f9ecd8cbee81-0
+00:15:01.240 --> 00:15:01.840
+He's trying.
+
+b70cb620-a8bc-49fd-adc6-d8b4201a5764-0
+00:15:24.520 --> 00:15:25.400
+Nice, please.
+
+887ab500-6481-4855-9c54-d8c0ab83dae8-0
+00:15:26.960 --> 00:15:27.480
+Yeah, yeah.
+
+d4e1c49a-eedd-45b6-b7fa-8807aab0d3e2-0
+00:15:27.600 --> 00:15:28.440
+Take your time.
+
+fb3d6a5b-b85f-43c8-a4f4-e1fcfc4c02b3-0
+00:16:21.480 --> 00:16:21.760
+So.
+
+4c3b5c26-fe15-4a95-9238-03d8173c179c-0
+00:17:00.080 --> 00:17:00.200
+None.
+
+07ccf376-34f7-4304-aa20-2ffc5b4b6d8e-0
+00:19:37.520 --> 00:19:42.473
+Can you try control shift,
+Shift control shift R, control,
+
+07ccf376-34f7-4304-aa20-2ffc5b4b6d8e-1
+00:19:42.473 --> 00:19:44.320
+control R hard reload?
+
+febab53a-f8f3-4527-a99e-0364b3ad7dd3-0
+00:19:47.720 --> 00:19:48.600
+Is it correct now?
+
+df881e52-4d05-4386-aa55-653dda0014c1-0
+00:19:48.720 --> 00:19:54.223
+Joseph,
+you misspelled that there should be AD
+
+df881e52-4d05-4386-aa55-653dda0014c1-1
+00:19:54.223 --> 00:19:55.160
+between.
+
+d1a0ece4-7639-46d8-b81f-f4644d609667-0
+00:20:17.960 --> 00:20:45.810
+Open inspect mode first course error
+Pratik.
+
+f15234b3-785c-403d-b00e-6afbabc84db9-0
+00:20:52.120 --> 00:20:52.680
+Pratik.
+
+a9bb5586-9cd9-46bf-98c6-680448ce02a1-0
+00:20:53.480 --> 00:20:54.400
+Yeah, he's on hold.
+
+8e361574-a20e-4bc2-8c15-4decf6edda9f-0
+00:20:54.560 --> 00:20:55.760
+Let me text him.
+
+9963b14b-e3b6-4e6d-9941-efd2c0bce719-0
+00:20:56.080 --> 00:21:01.066
+I think we will need somebody from the
+they look like they don't have the the
+
+9963b14b-e3b6-4e6d-9941-efd2c0bce719-1
+00:21:01.066 --> 00:21:03.560
+firewall who set up for the production.
+
+cd5dcaa3-3030-4826-99e4-47e2c62ea91d-0
+00:21:03.720 --> 00:21:05.320
+Yeah, yeah, yeah.
+
+985ea98a-79f4-467c-9404-be0fa622ea45-0
+00:21:05.320 --> 00:21:06.320
+See the same error, right?
+
+cda1abc9-212e-4043-b624-981a8fe86e28-0
+00:21:07.080 --> 00:21:09.560
+Yeah,
+we have prove it and then he will do it.
+
+f0fa4a54-10f1-4a21-9d54-fcd7cb5f6189-0
+00:21:11.120 --> 00:21:13.880
+Do we need to run some permission
+commands?
+
+4dbb21f3-3814-4217-ab7b-d58f9f2efca2-0
+00:21:13.880 --> 00:21:15.880
+No, no, no, no,
+they already have been done.
+
+e0cac6f2-e427-471b-b724-70f2304e8bd0-0
+00:21:15.880 --> 00:21:17.840
+I just cross verified it from the left.
+
+9d3add66-5b43-4043-9ddc-ecddbf47e4dc-0
+00:21:19.920 --> 00:21:20.040
+OK.
+
+457999a9-a202-4f4f-a86a-cab03241e0a5-0
+00:21:20.040 --> 00:21:21.120
+Hey, can you guys hear me?
+
+c8f9446d-0cc7-416b-a325-9e572ce2820f-0
+00:21:23.560 --> 00:21:24.240
+Yes, yeah.
+
+b57256c8-fc39-48dd-9c05-9472eb6e8aa6-0
+00:21:24.240 --> 00:21:27.135
+Look, look,
+yeah look like they don't have the
+
+b57256c8-fc39-48dd-9c05-9472eb6e8aa6-1
+00:21:27.135 --> 00:21:32.187
+firewall rules set up the same way that
+we they do for the the non production the
+
+b57256c8-fc39-48dd-9c05-9472eb6e8aa6-2
+00:21:32.187 --> 00:21:32.680
+project.
+
+da0265f7-8981-48f9-b423-d2e4bea5b875-0
+00:21:32.680 --> 00:21:35.040
+Can we engage IT security?
+
+91139d56-1e92-4bf1-a530-96ad719cf92b-0
+00:21:40.360 --> 00:21:43.480
+Yeah,
+my colleague is coordinating with Pratik.
+
+4b1d8c8e-d9a2-4111-9c06-30138e659abc-0
+00:21:43.480 --> 00:21:45.200
+I think it's some hold at the moment.
+
+75ae045a-b9e7-4d5a-ac03-aeda1847c61a-0
+00:21:49.520 --> 00:21:53.840
+But can can we proceed with like other
+agent setup Sidharth or is it?
+
+6e7e3888-e648-47d3-8916-d157ccdee1c2-0
+00:21:53.840 --> 00:21:54.800
+Yeah, yeah, yeah.
+
+fb39a010-5f08-4b75-a483-854127aae5d0-0
+00:21:54.800 --> 00:21:55.800
+No, no, we can do it.
+
+846c06b4-a415-4edd-9832-366f47b6e59e-0
+00:21:56.240 --> 00:21:56.600
+Yeah.
+
+53d3dd8a-89c3-47cd-b5bb-79aefbf0f4fb-0
+00:21:56.960 --> 00:22:03.560
+So let's do it.
+
+d558c528-cdcf-4c5a-9b47-e24dc0df8c00-0
+00:22:03.560 --> 00:22:04.920
+Joe, if you can share the screen.
+
+bac54cf0-6147-40a4-9d71-866121885d39-0
+00:22:11.040 --> 00:22:12.480
+OK, what what are we doing now?
+
+a1b89213-b0ae-4bbb-8784-a92011dcfb6d-0
+00:22:13.320 --> 00:22:15.200
+So we are setting up the agents.
+
+fb53f167-51de-4d3d-8d77-fecc64d0907f-0
+00:22:15.640 --> 00:22:20.080
+We already know that is a in the issue
+that other teams need to sort.
+
+a9f5fe18-3c7e-491d-bff7-a40fd4646764-0
+00:22:20.600 --> 00:22:22.280
+We are setting up the agents.
+
+52f1b1d3-ac38-4e4e-a434-426548d46ccc-0
+00:22:23.480 --> 00:22:25.880
+OK,
+you can exit out from here at the moment.
+
+d41d2935-bb1e-46ec-a3cc-54fa0cb44ba8-0
+00:22:30.080 --> 00:22:31.080
+Can you type this?
+
+4ff64856-470c-4418-8601-be1729e665f7-0
+00:22:31.200 --> 00:22:32.040
+I'll just give you.
+
+19d5eaab-fb15-4782-a55b-06f4c813fffa-0
+00:22:40.360 --> 00:22:40.600
+Hello.
+
+003042b5-89bc-41dd-a828-30269aa0cbad-0
+00:22:43.240 --> 00:22:43.760
+Hey, everyone.
+
+7e59cc45-bc0a-4564-a801-03fab0c11c3f-0
+00:22:46.720 --> 00:22:52.466
+Now, Pratik, we'll need,
+I think Mahesh for setting up those
+
+7e59cc45-bc0a-4564-a801-03fab0c11c3f-1
+00:22:52.466 --> 00:22:53.880
+firewall rules.
+
+5e02dbaa-bdaa-4b61-9b8d-ec66a851a7f1-0
+00:22:56.160 --> 00:22:57.800
+Yeah, I have requested those changes.
+
+7b3ae0f1-4bba-408b-9289-b299a8ae1652-0
+00:22:57.800 --> 00:23:01.680
+Can we go ahead with the remaining
+configuration?
+
+184c21e8-471e-4b1f-b6f6-f0d5d0d2c0ea-0
+00:23:02.240 --> 00:23:02.720
+Yeah, yeah.
+
+8ca9ebf4-0256-4a5c-89fd-87f4453279c6-0
+00:23:02.720 --> 00:23:02.960
+All right.
+
+5de8e32f-6fac-48da-9ae6-29069cecb897-0
+00:23:03.040 --> 00:23:03.160
+OK.
+
+5999253d-336c-4bda-ac7e-155bf9560a99-0
+00:23:03.920 --> 00:23:04.720
+So that's the procedure.
+
+244488f3-dce0-4681-94ff-19ca8cd20e6d-0
+00:23:05.840 --> 00:23:05.960
+OK.
+
+5ff502f5-5026-46ef-bbea-290004ba51f6-0
+00:23:06.760 --> 00:23:09.920
+So the this is the main VM, right?
+
+d36fbf53-6119-44f0-a2e8-941a880b9b2b-0
+00:23:10.240 --> 00:23:13.400
+We just wanted to run build Piper here,
+nothing else, right.
+
+77087f20-12d4-469e-9e5b-d31cef172a01-0
+00:23:14.360 --> 00:23:14.920
+Yeah, right.
+
+b4915247-ab70-4ffa-81f7-47eccd0261b2-0
+00:23:16.000 --> 00:23:16.960
+OK, fine.
+
+927e7d2a-65c8-475e-85eb-2297bfeb7e0f-0
+00:23:18.600 --> 00:23:20.640
+Joseph, can we go to the build agent?
+
+ee36ee93-7ad7-4b54-bdeb-34075a74d787-0
+00:23:24.440 --> 00:23:28.600
+How we need BP agent?
+
+12136c4e-cd54-4dfe-8f87-1152d9048efe-0
+00:23:29.320 --> 00:23:33.280
+No, no build agent The next, oh,
+the next server.
+
+0f4db0b8-681c-4752-8dbe-8b22970f0f54-0
+00:23:33.280 --> 00:23:35.080
+OK, Yeah, OK.
+
+284d2718-997d-4a8f-943d-aad245870e9f-0
+00:23:35.400 --> 00:23:36.080
+Hold on, hold on.
+
+e4671c65-e44e-4b8d-ab46-41629a414ae2-0
+00:23:36.080 --> 00:23:36.880
+Let me log in.
+
+911aee0c-8126-4f5e-87c9-039ac17355f7-0
+00:24:43.440 --> 00:24:47.680
+OK, this is the the bill agent.
+
+e7d0fb00-d31a-4878-a317-bea3daa7ddfa-0
+00:24:54.520 --> 00:25:01.040
+OK, OK give me one second.
+
+e6c72ac8-cb1f-43b3-b4ea-c3212dd9d512-0
+00:25:01.040 --> 00:25:05.000
+Let me check the the foreground so that
+we don't make mistake.
+
+cbbcf3e5-2a60-4087-99db-6400328fcb1c-0
+00:25:05.480 --> 00:25:09.960
+OK, let me switch your user to root.
+
+0094f588-8bcc-4590-b9d3-757028e18229-0
+00:25:11.400 --> 00:25:12.120
+OK, fine here.
+
+5920dd22-182f-408e-8f2f-ccfb45338efa-0
+00:25:31.330 --> 00:25:33.650
+OK, OK.
+
+db231cd2-22e9-41e2-b560-8f43723a9528-0
+00:25:34.210 --> 00:25:38.460
+Oh,
+can you type DF-I just wanted to check if
+
+db231cd2-22e9-41e2-b560-8f43723a9528-1
+00:25:38.460 --> 00:25:40.770
+the NFS mounting is done.
+
+1a1762ae-2753-4f93-8e50-5df8736b70f2-0
+00:25:40.930 --> 00:25:41.490
+I think it is.
+
+2e0ed802-2f3a-43f2-a734-d697f48ca207-0
+00:25:41.490 --> 00:25:42.210
+Yeah, it's not here.
+
+e87c54d0-12eb-44f8-9f45-038d85c7c44f-0
+00:25:42.970 --> 00:25:43.570
+Yeah, OK.
+
+01bc70eb-d114-436b-b407-c4724544a010-0
+00:25:44.050 --> 00:25:45.410
+You see the the two?
+
+45ee0d01-2bdc-4771-9991-0b029185221b-0
+00:25:45.810 --> 00:25:50.640
+The two NFS line yes I I'm able to see
+things.
+
+48938911-5199-4b05-b25b-28bf4b0b012a-0
+00:25:52.400 --> 00:26:07.031
+Can we run the status command again ETC
+In it dot D seriality status OK,
+
+48938911-5199-4b05-b25b-28bf4b0b012a-1
+00:26:07.031 --> 00:26:15.850
+we need we need to unedit a file with
+list.
+
+83239830-6b99-4c5d-9614-9ca8d7304725-0
+00:26:16.610 --> 00:26:18.330
+I did that first.
+
+42e802e8-b393-418c-959b-895d90831100-0
+00:26:19.330 --> 00:26:21.050
+I'll give the command over the chat.
+
+fad217f2-477e-4a35-ad4b-a10f472d708a-0
+00:26:27.800 --> 00:26:30.080
+Let's make modifications here first.
+
+68b8aec8-0768-453d-adc8-caaed0ece19e-0
+00:26:33.520 --> 00:26:36.149
+Hey Deepak,
+is Rishabh going to join the discovery
+
+68b8aec8-0768-453d-adc8-caaed0ece19e-1
+00:26:36.149 --> 00:26:37.800
+session or who is going to join?
+
+a0c72851-0fbc-45e3-be37-ef8f45996955-0
+00:26:38.840 --> 00:26:40.320
+Rishabh and Nashto should be joining.
+
+15b9dcca-7b48-43c3-8615-c5d693714dc9-0
+00:26:40.440 --> 00:26:41.800
+Let me call him.
+
+8d2712d3-c64e-420f-ba29-3ae2203abacb-0
+00:26:42.600 --> 00:26:54.110
+OK, OK, my part.
+
+cc1ef790-3d94-4a72-94f6-aaa5b915ec97-0
+00:27:01.320 --> 00:27:05.640
+So are the paths to be correct as we
+clone from the development, right?
+
+7323cd0b-d485-4655-9c66-32e32ea1c892-0
+00:27:08.920 --> 00:27:11.880
+We clone this server, Yeah, this is fine.
+
+a8a13ceb-629f-4cef-a60a-5f7b6a4961e2-0
+00:27:12.040 --> 00:27:13.920
+This you can exit out from here.
+
+c4175017-6ea3-44b5-9336-2e0ba6bf55f6-0
+00:27:24.960 --> 00:27:30.160
+I'll give the ITC to fault.
+
+08662655-d6fc-40fd-b5be-902d17e6cfc7-0
+00:27:33.040 --> 00:27:35.040
+Yeah, we need to edit this file.
+
+a2ac8bc2-1670-40f7-9d81-7aa8d374938b-0
+00:27:52.590 --> 00:28:00.870
+OK,
+BP agent build and then Canary analysis.
+
+78907409-86fa-4eb5-945a-4a76d56ddffe-0
+00:28:02.310 --> 00:28:05.710
+OK, fine.
+
+d4744571-f09b-4dbf-ac0c-b87f6a4ec1b9-0
+00:28:08.470 --> 00:28:16.880
+Canary analysis,
+that's the end of the file.
+
+df690834-6f85-4fab-bfa6-d992cc143823-0
+00:28:16.880 --> 00:28:17.200
+Yes, yeah.
+
+d9cc8b77-29a7-4bb6-aecc-923092a6c8d7-0
+00:28:17.200 --> 00:28:20.880
+Can we go to the line number three,
+please?
+
+2222e7fa-1a67-4cd3-a5a5-e86d22b6e85b-0
+00:28:20.880 --> 00:28:27.996
+And we need to remove cannery analysis
+line #3 Yes,
+
+2222e7fa-1a67-4cd3-a5a5-e86d22b6e85b-1
+00:28:27.996 --> 00:28:36.481
+we remove cannery analysis and then
+remove PP_agent_insights,
+
+2222e7fa-1a67-4cd3-a5a5-e86d22b6e85b-2
+00:28:36.481 --> 00:28:40.040
+the last part of the line.
+
+023d88e9-b008-433b-806c-43c1695a7bbf-0
+00:28:40.040 --> 00:28:45.600
+Do we need this_or NO?
+
+663c2bee-e5b9-40a1-a4e3-537ecaf6a3bc-0
+00:28:45.600 --> 00:28:46.920
+You, guessed that no.
+
+4669c02d-f2cc-41eb-b379-657410271e98-0
+00:28:48.400 --> 00:28:49.200
+No, no, OK.
+
+9b621dfb-8027-4de3-90df-e6a2625f4364-0
+00:28:50.160 --> 00:28:51.080
+LIKE, That like.
+
+0a812585-b768-4338-9b09-c09df96ac734-0
+00:28:51.080 --> 00:28:51.800
+That yes.
+
+fd0aa62e-64a3-4efb-952f-0d52c50cf7be-0
+00:28:52.000 --> 00:28:55.400
+That's, correct now.
+
+e65cf20d-1554-4fa4-8c1c-b218e65d31a1-0
+00:28:55.840 --> 00:29:05.994
+Navigate downwards on line #24 you have
+something like pool name-, capital Q:,
+
+e65cf20d-1554-4fa4-8c1c-b218e65d31a1-1
+00:29:05.994 --> 00:29:13.706
+VP_agent_build and,
+then space followed by, BP_AGENT_build,
+
+e65cf20d-1554-4fa4-8c1c-b218e65d31a1-2
+00:29:13.706 --> 00:29:15.120
+remove the.
+
+3488a6ff-6da3-4309-976a-ec8736342c06-0
+00:29:15.120 --> 00:29:20.400
+Next- cube from here right from.
+
+83b3c4e9-c762-4682-bfa6-a51b447d01b3-0
+00:29:20.400 --> 00:29:21.760
+Here yeah perfect.
+
+78194c7c-5259-4e15-be8e-b5536224fa4b-0
+00:29:21.760 --> 00:29:25.800
+Yeah, remove.
+
+c87f47a2-a325-49e5-863d-cd201f2394e5-0
+00:29:25.800 --> 00:29:26.280
+Canary.
+
+97d3fa26-a06c-45fa-a98e-0e43e7790f0d-0
+00:29:26.280 --> 00:29:30.600
+Analysis Remove BP agent INSIGHTS.
+
+4d63ded3-dd9c-4d73-93a3-2ef95574a4e9-0
+00:29:43.320 --> 00:29:47.880
+Yep, stop, keep that- Yeah,
+save the fight.
+
+1d794e50-267a-4355-8fbe-3ef737e01320-0
+00:29:52.080 --> 00:29:56.040
+Now let's start the agent and see.
+
+b71f3ab3-7666-4d22-8817-ea1d3905d7ec-0
+00:29:58.480 --> 00:30:01.440
+And we run this command to stop.
+
+bf5b4974-1c5e-4bc9-9551-20b2fc3d98b1-0
+00:30:02.360 --> 00:30:05.029
+Yeah,
+change the status to start and here's
+
+bf5b4974-1c5e-4bc9-9551-20b2fc3d98b1-1
+00:30:05.029 --> 00:30:06.000
+will be good to.
+
+b28b51ff-71d2-4f13-86ea-b80dda69dae2-0
+00:30:23.600 --> 00:30:24.240
+OK.
+
+9f8bc807-3a13-4433-8ff1-b03a96e7ab06-0
+00:30:35.740 --> 00:30:41.060
+I don't think we update that file though.
+
+d51c9699-ad6a-4768-bd83-de6efb74663f-0
+00:30:41.100 --> 00:30:44.958
+So that file might, yeah,
+that file might still put point to your
+
+d51c9699-ad6a-4768-bd83-de6efb74663f-1
+00:30:44.958 --> 00:30:45.660
+development.
+
+a1d319f4-6aa2-442f-a97f-030df92cd2b7-0
+00:30:52.180 --> 00:30:53.460
+Sorry, I didn't get that.
+
+da5bde80-00e6-4b7d-aefa-8f972eae4b2f-0
+00:30:54.060 --> 00:30:59.427
+I say this file is still point to
+development, right Server, right, Yeah,
+
+da5bde80-00e6-4b7d-aefa-8f972eae4b2f-1
+00:30:59.427 --> 00:31:00.660
+it is a contract.
+
+4d41f370-881d-43fc-82d2-80c8c624f8f4-0
+00:31:00.700 --> 00:31:01.940
+OK, we haven't put that.
+
+eecae429-517e-4ecc-a590-9e8a9112b0e4-0
+00:31:02.020 --> 00:31:04.660
+You're saying that this file isn't
+present at the moment?
+
+bf497357-b7e7-432f-b40b-3fb2362c4da1-0
+00:31:06.400 --> 00:31:07.640
+OK, let's go to this slide.
+
+bfa39cc9-d648-4b25-9b20-cabde4a714d3-0
+00:31:10.640 --> 00:31:13.446
+Oh,
+we need to change the endpoints in the
+
+bfa39cc9-d648-4b25-9b20-cabde4a714d3-1
+00:31:13.446 --> 00:31:14.360
+API dot Jason.
+
+a836e223-3248-414e-a7a0-b8b20183cad3-0
+00:31:15.280 --> 00:31:17.600
+Yeah, we have not updated this file yet.
+
+d0a02148-6c00-4791-9741-10769b477e38-0
+00:31:18.000 --> 00:31:19.760
+OK, we haven't updated this file.
+
+2e8fbabf-e642-49dc-930f-5664c527a955-0
+00:31:20.480 --> 00:31:20.840
+Can I?
+
+6caeab35-1abf-4a8c-b9ec-9c9ea051676c-0
+00:31:23.720 --> 00:31:27.375
+Yeah,
+that's why I think still point to to
+
+6caeab35-1abf-4a8c-b9ec-9c9ea051676c-1
+00:31:27.375 --> 00:31:29.160
+development endpoint.
+
+cccad6c9-b0d1-438d-9dd7-a69923ccb1b1-0
+00:31:40.960 --> 00:31:49.816
+Yeah, I think line #44 and also let me,
+I think I'll make some change and let me
+
+cccad6c9-b0d1-438d-9dd7-a69923ccb1b1-1
+00:31:49.816 --> 00:31:52.440
+get on and come back in.
+
+2ff09091-f06e-4eef-817e-db947899bc24-0
+00:32:41.520 --> 00:32:47.109
+So this is the I can,
+I think you can copy the file from the
+
+2ff09091-f06e-4eef-817e-db947899bc24-1
+00:32:47.109 --> 00:32:49.400
+master and paste it here.
+
+6b504a77-cc7b-4df4-8b39-63faf6544879-0
+00:32:50.200 --> 00:32:52.320
+OK, Can I copy the whole thing?
+
+715ce01e-3e95-4005-970b-9ff5c6c68177-0
+00:32:52.800 --> 00:32:58.743
+Yeah,
+copy the whole thing and paste it on the
+
+715ce01e-3e95-4005-970b-9ff5c6c68177-1
+00:32:58.743 --> 00:33:00.640
+agent machines.
+
+4f0706d3-454b-4d09-9ef5-a0e5f9b071dd-0
+00:33:02.840 --> 00:33:04.800
+Can I just copy that file over?
+
+44076b18-4ba3-4357-abad-746bc65f0e95-0
+00:33:05.560 --> 00:33:05.680
+Yeah.
+
+ece87d52-f2d5-4a3a-a2f2-10bb489b6384-0
+00:33:13.240 --> 00:33:13.840
+Can I do that?
+
+c8f53e3b-95da-46ac-b5cf-0dcf6d5d05f6-0
+00:33:14.160 --> 00:33:19.647
+Copy the file over there or Yes,
+Yes you can copy the file over over the
+
+c8f53e3b-95da-46ac-b5cf-0dcf6d5d05f6-1
+00:33:19.647 --> 00:33:21.000
+desired directory.
+
+c7f2ce24-9a64-4b87-b770-dfd0f1ba2fa1-0
+00:34:02.680 --> 00:34:04.200
+Yeah, I think this is correct.
+
+fd7212fb-b37c-49db-ac5c-fe2b131a43ec-0
+00:34:06.400 --> 00:34:06.960
+Should be right.
+
+98cff32b-ace5-4f71-a293-5a550230982b-0
+00:34:07.480 --> 00:34:07.840
+Yes.
+
+4088e4ac-40df-4b59-9ba9-dfa9108d48fb-0
+00:34:07.840 --> 00:34:09.200
+Start the agent.
+
+4904a2af-f2cc-44cf-a435-f6562f1d3628-0
+00:34:16.240 --> 00:34:16.360
+Yes.
+
+1d26df6f-bc87-4d75-a4af-055fc991e330-0
+00:34:16.360 --> 00:34:17.880
+Yes, it is correct.
+
+cab5da19-6066-46fa-a40a-90bd2144cfa0-0
+00:34:17.880 --> 00:34:19.680
+Can we check the status please?
+
+921eae59-980b-42fb-b4e7-57429130b737-0
+00:34:27.160 --> 00:34:28.120
+Yeah, perfect.
+
+aa13f7c9-eadf-41c6-9e72-39652dc435b1-0
+00:34:29.520 --> 00:34:31.840
+Only the BP agent is a that is correct.
+
+f13c73e5-d396-446e-ad5c-54291d4ed5bf-0
+00:34:32.320 --> 00:34:34.560
+Can we proceed to the next VM please?
+
+e3e1c1a1-471d-4c56-8aa3-6d32904ad18d-0
+00:34:35.720 --> 00:34:36.840
+That will be a deploy.
+
+c47661b8-d5be-4e94-8352-b681dc215a13-0
+00:34:37.120 --> 00:34:38.320
+Yeah, the deploy one.
+
+a9690de5-45ac-4fe9-9e07-624f2ff6445b-0
+00:34:38.880 --> 00:34:40.960
+Yes, the deploy one, that is correct.
+
+11e35816-fcd1-4252-b3e1-cf7c438efc41-0
+00:34:41.080 --> 00:34:43.480
+OK, this is server.
+
+54317c44-1487-46eb-bf59-21cf40f83ebd-0
+00:34:43.480 --> 00:34:50.266
+Let me first of all,
+can we also can we paste the API Jason on
+
+54317c44-1487-46eb-bf59-21cf40f83ebd-1
+00:34:50.266 --> 00:34:54.360
+the respective path of ATC in a dot D?
+
+5c990344-2389-4026-a9a3-c27e546f0dda-0
+00:34:55.280 --> 00:34:57.240
+Yeah, the same one.
+
+aea60f51-a973-442c-b2aa-0f26c9efaff9-0
+00:34:58.000 --> 00:34:58.840
+Yeah, the same one.
+
+0491a211-b99d-4610-b9ca-a66362b8bdf1-0
+00:34:59.560 --> 00:35:00.720
+OK, hold on.
+
+a27508ff-245b-4026-80ed-fccd48260147-0
+00:35:02.040 --> 00:35:02.440
+ETC.
+
+e1364f0c-221b-43ba-b736-0170767c7201-0
+00:35:02.480 --> 00:35:03.840
+Constantly build a bike.
+
+cbc98f71-ab2d-48c2-9f15-1bac427edd05-0
+00:35:03.840 --> 00:35:09.040
+Let me copy the file from the master.
+
+6c61a5b1-678c-4b5c-b041-2b48aeae3f17-0
+00:35:13.160 --> 00:35:13.640
+Yes, please.
+
+22804f3c-4dcd-4736-8cd6-bc4922c34b3c-0
+00:35:53.200 --> 00:35:55.360
+OK, can we check the status?
+
+771c9a54-32e7-43ac-a59b-d656709c63a9-0
+00:35:55.360 --> 00:35:56.240
+Not now.
+
+0653b105-2bd1-45ff-ba01-14cff19d6776-0
+00:36:26.380 --> 00:36:29.380
+Yeah ETC in it dot D sealer D status.
+
+6236e961-28fc-40e4-aeb3-8d4abd12f8a4-0
+00:36:33.140 --> 00:36:40.128
+OK,
+now let's make some changes in the file
+
+6236e961-28fc-40e4-aeb3-8d4abd12f8a4-1
+00:36:40.128 --> 00:36:44.100
+VIETC default sealer DDD.
+
+a72caef2-0cf2-489b-9a8b-29a08f659470-0
+00:36:52.040 --> 00:36:52.680
+Yes.
+
+38995c2f-7384-44be-bdc7-1df2be6f6f74-0
+00:37:05.410 --> 00:37:06.570
+Oh, we do the same thing.
+
+46b36933-7d61-4937-8240-6bd3eb4f3326-0
+00:37:07.210 --> 00:37:09.450
+No, no, no, no, we don't do.
+
+070fc907-18f0-46f7-9b8c-fb856ea92544-0
+00:37:10.090 --> 00:37:11.010
+It's a deploy.
+
+a244faf0-e6bf-46e3-9328-d2a2acbaffa0-0
+00:37:12.050 --> 00:37:12.450
+OK.
+
+3bdd7ed0-9da4-42af-876e-6805117a379e-0
+00:37:13.450 --> 00:37:16.250
+The configuration seems perfect for the
+deploy agent.
+
+a4a9c598-96fd-4b72-9059-c32869327e8d-0
+00:37:17.330 --> 00:37:19.650
+Just exit it out from here and start the
+agent.
+
+fea6da41-95c3-4803-8b56-a1e0c599a343-0
+00:37:31.840 --> 00:37:33.600
+OK, just check the status once.
+
+a7404c01-6f4e-47bd-9add-47ad206539af-0
+00:37:36.200 --> 00:37:36.440
+Yeah.
+
+57b25850-11ed-4dda-bc6a-3c225965f257-0
+00:37:36.600 --> 00:37:39.800
+OK, so agents are up and running.
+
+adfccaa5-9ec3-4aac-bc44-4eaf4e32f1d7-0
+00:37:40.120 --> 00:37:43.266
+Deepak,
+would you like to install Majority
+
+adfccaa5-9ec3-4aac-bc44-4eaf4e32f1d7-1
+00:37:43.266 --> 00:37:46.560
+Insights also on this call or yes, yes,
+yes.
+
+d196a464-7693-4303-84ae-87e38b32674c-0
+00:37:46.560 --> 00:37:49.880
+The maximum we can do till Joseph is
+available.
+
+a1309dd0-7880-4d42-804c-0a1e7884b2cf-0
+00:37:50.600 --> 00:37:53.720
+OK, yeah, go back to the master.
+
+904d9989-3c9e-4987-b552-709efaeb80b9-0
+00:37:54.760 --> 00:37:56.760
+Yes, go back to the master, please.
+
+77346e6a-1059-419c-aca9-5cef763a6e83-0
+00:37:57.880 --> 00:37:59.960
+So Bill agents, both are done.
+
+2f613396-b505-4af9-9ae2-1f1ca949b1a4-0
+00:38:00.560 --> 00:38:02.200
+Yes, build and deploy both are done.
+
+d9e470b8-3f6b-4c14-8d8b-aea4db25e5db-0
+00:38:03.040 --> 00:38:12.320
+OK, OK, OK.
+
+b0586f43-a464-49b3-b278-3a75d091b57b-0
+00:38:12.640 --> 00:38:15.080
+So in in here.
+
+e82e90ab-763a-477c-8e78-b017faa4c00f-0
+00:38:17.960 --> 00:38:23.640
+OK, first of all, let me open my SOP.
+
+09f249cc-49f4-434e-89cc-ff3798655869-0
+00:38:23.680 --> 00:38:28.720
+Yeah, sorry,
+just wanted to check a few things.
+
+497fc347-f7cc-43b3-a649-9de6f9d88ed6-0
+00:38:33.400 --> 00:38:38.296
+Hey,
+I noticed that in development you have a
+
+497fc347-f7cc-43b3-a649-9de6f9d88ed6-1
+00:38:38.296 --> 00:38:45.960
+ADNS called maturity insights, Yes,
+but I don't see that in production.
+
+78c248db-5eab-416f-807d-b741fcb54100-0
+00:38:45.960 --> 00:38:49.862
+So we are,
+we are installing the word maturity and
+
+78c248db-5eab-416f-807d-b741fcb54100-1
+00:38:49.862 --> 00:38:54.760
+to use the insights is that Yes, Yes,
+that is, that is correct.
+
+008d042c-1020-4468-8f00-8b7d8cb432fa-0
+00:38:54.840 --> 00:38:56.960
+That is what we are going to do in next
+15 minutes.
+
+6ea6e6be-33eb-40f0-8f42-6926a723aa70-0
+00:38:57.520 --> 00:38:58.920
+OK, OK.
+
+51d1fa99-b1c7-4244-951c-697cc95a5418-0
+00:38:59.000 --> 00:39:01.953
+Because I, I,
+I checked the DNS bracket early and I
+
+51d1fa99-b1c7-4244-951c-697cc95a5418-1
+00:39:01.953 --> 00:39:05.760
+could not find anything that matching
+virtualty in in development.
+
+be8aec62-41db-4f6b-ab9f-d01596cbe1c5-0
+00:39:06.160 --> 00:39:06.800
+OK, that's fine.
+
+53f7136e-7461-44de-b113-073919c21ed3-0
+00:39:06.800 --> 00:39:07.200
+Go ahead.
+
+20bfff29-3e14-4bff-85b4-eebad8a2d7bf-0
+00:39:07.960 --> 00:39:09.960
+OK,
+you are you are half built by per
+
+20bfff29-3e14-4bff-85b4-eebad8a2d7bf-1
+00:39:09.960 --> 00:39:10.960
+resource right now.
+
+04de2380-4b29-45ed-a86c-15e32b696e78-0
+00:39:16.040 --> 00:39:16.800
+OK, Yeah.
+
+921137d7-8c9e-41ad-80af-05e2769abd14-0
+00:39:18.080 --> 00:39:21.080
+So can you do PWD?
+
+ee9f7a6b-aab3-4d11-a76a-49fa0302fd78-0
+00:39:21.160 --> 00:39:22.280
+Where are we?
+
+d39ae7e3-a4a8-40d1-b40f-f92fda4991db-0
+00:39:22.360 --> 00:39:24.840
+OK, Contra D maturity insights.
+
+2baf439a-c02c-4a69-b5f0-d47580aef3f9-0
+00:39:24.840 --> 00:39:25.520
+OK, fine.
+
+b1d11612-b078-466c-865d-c9dd1de466fb-0
+00:39:27.800 --> 00:39:28.560
+Open this.
+
+e68a8f7a-14a9-428d-bb8e-f21981d5d221-0
+00:39:29.400 --> 00:39:36.388
+I think we need to copy,
+copy the API file from CD,
+
+e68a8f7a-14a9-428d-bb8e-f21981d5d221-1
+00:39:36.388 --> 00:39:42.840
+go on directory back LS,
+copy from build piper.
+
+0a7909ee-6900-4c66-a089-66bfc694d9e2-0
+00:39:43.240 --> 00:39:48.283
+Yes, copy it from build Piper,
+paste it there and then we'll make
+
+0a7909ee-6900-4c66-a089-66bfc694d9e2-1
+00:39:48.283 --> 00:39:49.200
+changes, OK?
+
+aac8c4f9-2912-46f3-95ff-5b8d0165e5bb-0
+00:40:20.680 --> 00:40:22.960
+OK, OK, OK, one second.
+
+5cb0c999-f7a2-4273-afaf-6570f9103a00-0
+00:40:26.360 --> 00:40:31.630
+OK,
+line #41 we have to change the name to
+
+5cb0c999-f7a2-4273-afaf-6570f9103a00-1
+00:40:31.630 --> 00:40:33.960
+Maturity dashboard.
+
+f4e996fe-9ab4-4787-97d8-2206e6550793-0
+00:40:33.960 --> 00:40:35.240
+I'm just giving on the chat.
+
+f04c4bbe-2a0a-446f-9f4e-f4af47d9c7ee-0
+00:40:58.440 --> 00:41:11.560
+Maturity_dashboard OK save the file.
+
+d1d69399-461b-4f2c-bf9f-3f1ac54801e0-0
+00:41:16.160 --> 00:41:18.960
+I wanted to see the environment file also
+here.
+
+3e73ae13-2341-46f1-baad-9fc2a33364b7-0
+00:41:19.800 --> 00:41:22.200
+Can we VIENV dot Jason?
+
+b7edfdae-d161-4be2-8bed-04571f8b0228-0
+00:41:28.080 --> 00:41:32.084
+OK, OK,
+so we do to do domain mapping for
+
+b7edfdae-d161-4be2-8bed-04571f8b0228-1
+00:41:32.084 --> 00:41:39.520
+maturity insights and remove the dev from
+here Maturity insights line number.
+
+b66ab638-4ee7-4617-aa3c-0a730f0e0584-0
+00:41:39.640 --> 00:41:39.920
+Yeah.
+
+07ff043e-c841-473e-87da-0ac9977b9944-0
+00:41:45.230 --> 00:41:45.550
+What?
+
+51ac8800-7213-4173-84fa-9e1c07269656-0
+00:41:45.550 --> 00:41:48.470
+What is the name Tabris?
+
+4fa6d00e-dc91-49b7-b1a8-f95a0f2f4fcf-0
+00:41:49.030 --> 00:41:50.630
+What is the exact URL?
+
+6ef375cd-9a06-4d86-8d15-086d3d2c9241-0
+00:41:51.750 --> 00:41:53.550
+I think you say in just inside, right?
+
+65fb304b-06c5-4700-841b-52c22fb9b41c-0
+00:41:54.630 --> 00:41:57.430
+OK, yes, maturity insights.
+
+43651b07-32a0-4e8c-86f3-ad0137d66c8b-0
+00:41:57.550 --> 00:41:59.150
+I think devs should be removed here.
+
+5660070d-f317-470c-b46a-114957cf887b-0
+00:42:01.270 --> 00:42:07.920
+I don't see that what can you include
+line numbers in the file?
+
+664ce233-c952-48da-afdc-5e28f332edd8-0
+00:42:08.840 --> 00:42:11.960
+Because what I am referring is the line
+number 2.
+
+d3aa9d1d-334f-481b-8719-90bca10dac32-0
+00:42:14.880 --> 00:42:19.280
+It's BP URL, Yes,
+it's the build Piper URL that is the
+
+d3aa9d1d-334f-481b-8719-90bca10dac32-1
+00:42:19.280 --> 00:42:25.760
+current build Piper set of a fraud that
+needs to be updated on line number four.
+
+06d66213-52b3-4998-811c-a8c6359c68e6-0
+00:42:26.840 --> 00:42:30.960
+And for the line number one,
+it says STTPS.
+
+1f550b9c-0785-4377-b992-32995fe1acb1-0
+00:42:30.960 --> 00:42:33.160
+OK, let me let me let me get out.
+
+5444d8a3-499d-4c5c-af8c-05525a9845a4-0
+00:42:33.160 --> 00:42:37.240
+And then so that you don't Yes, OK,
+that's correct.
+
+db4286eb-9490-40e8-9528-94eae72a638e-0
+00:42:37.440 --> 00:42:37.600
+Yeah.
+
+83ba8a55-4d2f-43ce-baed-be81b40e2a9f-0
+00:42:48.930 --> 00:42:52.050
+OK, let's go slowly one by one.
+
+9d0e62bd-f9f3-4889-821f-7035a24f9408-0
+00:42:53.730 --> 00:43:02.665
+OK, on line number 2,
+I think after maturity- insight, it's dev,
+
+9d0e62bd-f9f3-4889-821f-7035a24f9408-1
+00:43:02.665 --> 00:43:03.490
+right?
+
+17ad3bc9-2a1a-49bc-ba1e-e328b6af8e5e-0
+00:43:04.050 --> 00:43:05.490
+We need to remove that dev.
+
+8d99ae1d-70d3-4cbc-8e98-157e9c3f739c-0
+00:43:07.600 --> 00:43:09.880
+So this doesn't exist.
+
+3209aa3e-071e-443c-b7f1-a935d04d9f20-0
+00:43:09.880 --> 00:43:13.760
+This name doesn't exist I don't think
+Pratik.
+
+b486490b-10a8-498d-9169-c9602c9a86e3-0
+00:43:13.760 --> 00:43:16.680
+Can you confirm Pratik Shah?
+
+edf19545-22ed-477b-a1a6-402994ec7c03-0
+00:43:16.840 --> 00:43:21.160
+What is the exact name for the maturity
+insights DNS for the prod?
+
+20e44066-3aba-4ced-8691-4fd44bdcb6ee-0
+00:43:21.160 --> 00:43:22.560
+Give me a second.
+
+4d17a661-df57-439d-b63a-7a1733b76288-0
+00:43:22.960 --> 00:43:24.160
+I have pink Pratik.
+
+b5101be4-9fbd-4e22-979f-44ce037ea8dd-0
+00:43:24.440 --> 00:43:31.760
+He's just I I think he just called
+insight from from from my previous note.
+
+020eefee-cf95-424b-8cc3-4054c5cfdc19-0
+00:43:32.800 --> 00:43:35.680
+OK, let's validate from them.
+
+5f4c32d9-5529-4e32-8a22-70bbcb91de6b-0
+00:43:36.520 --> 00:43:44.530
+This is this is what he shared in the
+previous meeting by he shared insight and
+
+5f4c32d9-5529-4e32-8a22-70bbcb91de6b-1
+00:43:44.530 --> 00:43:51.840
+then the inside blue is it this is this
+is what he share for production.
+
+c7b5c792-2841-46f2-ba3b-39bf4081afc8-0
+00:43:56.800 --> 00:44:01.160
+OK, let's go with insightsi.wm.com.
+
+acf924d6-6ee1-45fe-849b-31f9b596ddbd-0
+00:44:04.640 --> 00:44:06.840
+I think Pratik gets shared in this chat
+also.
+
+0b227faf-34cd-4059-aca0-8774737d060a-0
+00:44:07.360 --> 00:44:10.640
+Yeah, yeah, same thing.
+
+1487a748-8583-4495-a156-f6f17c479607-0
+00:44:10.640 --> 00:44:13.320
+What I Yeah, the same thing what I have.
+
+f7c9fefe-ec57-4984-8703-e2514141ba8d-0
+00:44:13.640 --> 00:44:13.800
+Yeah.
+
+1be30656-45a8-4f94-a044-d7cedc8c6234-0
+00:44:13.800 --> 00:44:21.484
+OK,
+so the public URL will be insights- api.
+
+1be30656-45a8-4f94-a044-d7cedc8c6234-1
+00:44:21.484 --> 00:44:22.680
+wm.com.
+
+5f4a2824-bd29-420c-8287-fa37ca1bd885-0
+00:44:27.640 --> 00:44:28.080
+OK.
+
+72d5ef91-b605-4212-ab01-d1b855e71a38-0
+00:44:32.680 --> 00:44:37.412
+And the next line number four,
+line number four,
+
+72d5ef91-b605-4212-ab01-d1b855e71a38-1
+00:44:37.412 --> 00:44:40.600
+it's the current build Piper URL.
+
+26108702-0c0b-4196-8721-cd9aa6745ecb-0
+00:44:41.240 --> 00:44:42.840
+Shah, can you share that URL?
+
+78f5549f-7993-4674-a988-b865e8bb43eb-0
+00:44:43.800 --> 00:44:49.360
+It is build piper.wm.
+com that should be Yep, right, right.
+
+77aae324-22b8-4ce9-a7e9-7a3d8d1bb0f6-0
+00:44:50.000 --> 00:44:52.240
+Yes, save the file.
+
+3dae3787-4da2-41e0-a39d-9da69145b42e-0
+00:44:53.880 --> 00:44:58.880
+One more thing, Tabris,
+we did some changes, right?
+
+c0951e1d-b056-4c46-922b-f092640c64e4-0
+00:44:58.880 --> 00:45:03.200
+Organization is equal to this, Yes.
+
+3f181eb5-e97a-4a6a-86a4-8771549a54cd-0
+00:45:04.240 --> 00:45:08.765
+Can you,
+do you have that configuration handy or
+
+3f181eb5-e97a-4a6a-86a4-8771549a54cd-1
+00:45:08.765 --> 00:45:10.520
+do I need to check?
+
+6c79a372-955f-4c7c-b34e-6b7f715b4a35-0
+00:45:12.360 --> 00:45:13.400
+Just give me a minute.
+
+c23860e5-781b-4e28-9c9f-32aeae94ff13-0
+00:45:13.840 --> 00:45:16.640
+Yeah, one second here.
+
+47e61bd4-a4c4-4a01-8b4d-039c0255a03a-0
+00:45:16.640 --> 00:45:17.720
+Let me also check.
+
+bc01c4b5-adda-43b7-8fa1-a0425e0edbaa-0
+00:45:20.280 --> 00:45:21.040
+Yeah, I got it.
+
+60e652be-808a-4e3d-8912-93d261279d72-0
+00:45:32.000 --> 00:45:35.560
+Yeah, so that I just give in the chat.
+
+e7391dc8-0f51-4b25-bca8-ee9dbd92799c-0
+00:45:39.080 --> 00:45:40.440
+Where should I insert that?
+
+65834602-16ba-469b-b096-4d1f2aa42cae-0
+00:45:53.540 --> 00:45:55.300
+Yeah, we have to paste it, Siddharth.
+
+38f7d578-ab0e-434a-a0b7-cfe418e5c82b-0
+00:45:55.340 --> 00:45:57.620
+No, just one second.
+
+cd837e80-56ad-4bff-92d5-0154d7f72537-0
+00:45:57.860 --> 00:46:07.440
+I'm just validating it.
+
+76ba8a3f-88c1-4571-9ed8-c0cf413fcfe4-0
+00:46:07.440 --> 00:46:12.000
+Yeah, organization_name.
+
+5468c295-b0f0-4eab-8498-4feaf0fb11c1-0
+00:46:13.520 --> 00:46:13.960
+OK, OK.
+
+46dc9054-5eef-42d8-a324-a242e5458db6-0
+00:46:13.960 --> 00:46:16.280
+You already gave, right?
+
+1fe0e52c-4c76-4946-9529-2023f93b3ddf-0
+00:46:16.280 --> 00:46:22.579
+Can you copy this configuration that SHA
+gave and on line number four,
+
+1fe0e52c-4c76-4946-9529-2023f93b3ddf-1
+00:46:22.579 --> 00:46:26.040
+hit enter and paste this configuration.
+
+cf891fe0-ca8d-4a9f-97a7-6a26f4d2d528-0
+00:46:26.040 --> 00:46:37.188
+It says organization_name calls in cap
+followed by the organization name So this
+
+cf891fe0-ca8d-4a9f-97a7-6a26f4d2d528-1
+00:46:37.188 --> 00:46:47.511
+is the spot the the this this spelling,
+right, not the Z right, not the Z,
+
+cf891fe0-ca8d-4a9f-97a7-6a26f4d2d528-2
+00:46:47.511 --> 00:46:56.320
+but it should start with double quotes on
+line #5 yes, perfect.
+
+012b83d7-06dd-47c4-8840-9bb737c3c1f0-0
+00:46:57.320 --> 00:46:58.160
+Save this file.
+
+960c32cd-fa96-4ff0-8ae7-87f055176c21-0
+00:47:04.680 --> 00:47:07.960
+OK, can you go to deploy build Piper?
+
+23738b5c-5ee6-4b3e-94ef-c007258779fd-0
+00:47:19.480 --> 00:47:23.160
+You mean the the root directory?
+
+d7d5fe89-d107-4000-b668-06a538b854b4-0
+00:47:23.200 --> 00:47:27.640
+Yeah, the root directory.
+
+b925b6ac-2f89-4f63-b23d-cbd804f370fa-0
+00:47:27.640 --> 00:47:31.000
+OK, OK, just wanted to check.
+
+147ae426-1e3a-475d-99da-fb355e71c69a-0
+00:47:31.000 --> 00:47:33.560
+OK, maturity_properties is there.
+
+1fcd4d4b-969c-4468-86d4-a37db1273ce5-0
+00:47:33.560 --> 00:47:35.960
+Can you go inside maturity_properties
+here?
+
+c9521a2d-b73a-4e7e-9016-719bac9376d7-0
+00:47:37.680 --> 00:47:39.920
+OK Doctor Hutchison is there.
+
+98c2e749-0089-4638-8e05-fcb62d42b1ae-0
+00:47:41.600 --> 00:47:45.200
+OK, can you copy?
+
+954506ec-ff21-4510-8c48-28e986102c5d-0
+00:47:46.360 --> 00:47:46.600
+Yeah.
+
+07846f27-201b-41b0-b312-c1e9b6fc56a8-0
+00:47:48.480 --> 00:48:00.846
+Can you copy the file in,
+ETC from ETC conf maturity dashboard to
+
+07846f27-201b-41b0-b312-c1e9b6fc56a8-1
+00:48:00.846 --> 00:48:11.339
+here in both API,
+Jason and the environment, Jason, OK,
+
+07846f27-201b-41b0-b312-c1e9b6fc56a8-2
+00:48:11.339 --> 00:48:17.710
+perfect, perfect These properties.
+
+4d3e3e4a-331f-4674-a35f-28d040e784df-0
+00:48:17.750 --> 00:48:18.670
+OK, perfect.
+
+da545f99-ce9c-4301-a91d-b771b9733c04-0
+00:48:18.710 --> 00:48:18.830
+Yeah.
+
+3a4b35f8-1b4a-4499-a4fa-c596d6d847fa-0
+00:48:21.390 --> 00:48:28.120
+Now can you go one directory back, Alice?
+
+16ac0f75-8ccc-4b1b-addd-6ca7cfe95a64-0
+00:48:29.520 --> 00:48:29.760
+Yeah.
+
+257c803f-625f-46af-806f-48a8a73b5722-0
+00:48:29.840 --> 00:48:34.520
+Can you edit the Docker compose file VI
+Docker compose?
+
+c0d09bc7-b2cd-464d-a5d1-79870fef983d-0
+00:48:38.400 --> 00:48:41.920
+Yeah, just one thing.
+
+9cddfb4d-066e-4fa5-8e79-b73f993a9ec0-0
+00:48:43.520 --> 00:48:43.760
+OK.
+
+811f1bdc-b508-426e-8985-129d18752721-0
+00:48:43.760 --> 00:48:45.840
+Can you add line numbers to the file?
+
+7b164540-9b4d-4091-ab0f-17c80c846f52-0
+00:48:51.520 --> 00:48:53.360
+Go to the bottom of the file.
+
+2ce44806-d433-4fc7-9546-7550a8e1952f-0
+00:48:56.560 --> 00:49:01.680
+OK, just on line #183 I think we should.
+
+e3e4dba0-1bb0-487f-a042-9685018decb1-0
+00:49:01.680 --> 00:49:03.560
+We already have these configurations.
+
+57a25f43-6556-44a1-8a9a-ba0358647f5d-0
+00:49:04.160 --> 00:49:05.320
+OK, perfect.
+
+4915e5a6-49b6-4a93-b2eb-f572055ce9f1-0
+00:49:05.320 --> 00:49:07.640
+We copy from from development, remember?
+
+15d3576a-6f15-4b63-a978-5b015bc21b40-0
+00:49:07.920 --> 00:49:11.600
+So OK, OK, yeah, makes sense.
+
+dc09bb50-b049-4e07-ac37-a567ff29c1ce-0
+00:49:12.160 --> 00:49:13.840
+Can you make Docker?
+
+5c78bde3-c20b-46f9-a402-1c8bfd59a082-0
+00:49:14.000 --> 00:49:16.320
+I want to just just exit out from here.
+
+86e54f1d-bda5-4578-baec-c58fd77f3966-0
+00:49:16.360 --> 00:49:22.160
+All the configurations are already there
+just from Docker piece.
+
+f6f9c0aa-9071-4855-8e3c-a1cf829857d7-0
+00:49:22.160 --> 00:49:24.520
+Just wanted to check if the containers
+are up and running.
+
+bac4e8a5-0550-4b5a-b5c1-ed4cccf071e3-0
+00:49:28.360 --> 00:49:33.960
+OK OK OK just do one thing Docker compose
+restart.
+
+f3eaa134-028b-4f17-b45f-0ccb5313c25d-0
+00:49:34.320 --> 00:49:38.880
+Docker iPhone compose restart.
+
+f443a92c-ccf2-43b9-b7f2-2858c75a5e7f-0
+00:49:58.990 --> 00:50:10.044
+Can we do the DNS mapping for insights
+insightstartwm.com and Insight start api.
+
+f443a92c-ccf2-43b9-b7f2-2858c75a5e7f-1
+00:50:10.044 --> 00:50:11.000
+wm.com?
+
+85f62f65-8371-4ded-b25e-993106856e9b-0
+00:50:12.880 --> 00:50:13.920
+Are these mapped?
+
+45215c4d-2bc3-4d7f-8333-0cbc1a40e573-0
+00:50:15.720 --> 00:50:30.990
+We need to create target group on node
+balancer, Joseph, OK, variable map, right?
+
+edf982f3-af02-45ec-a369-a5cde848f0cc-0
+00:50:32.830 --> 00:50:35.230
+Yeah,
+we need to create target group on node
+
+edf982f3-af02-45ec-a369-a5cde848f0cc-1
+00:50:35.230 --> 00:50:35.710
+balancer.
+
+c2e4c188-df98-4e95-9a74-d80ea63db664-0
+00:50:37.590 --> 00:50:38.270
+Yeah, let me go there.
+
+fbaeb7a9-64ef-452e-be34-8e40713c9c5f-0
+00:50:39.880 --> 00:50:53.177
+OK, So we need to,
+I'm checking the call inside that to to
+
+fbaeb7a9-64ef-452e-be34-8e40713c9c5f-1
+00:50:53.177 --> 00:50:54.530
+match.
+
+5a67f31c-1962-432a-b6a2-5944b600307e-0
+00:50:57.490 --> 00:50:59.970
+We need one for inside and one for API,
+correct?
+
+6380c2b8-be16-4bdd-a65e-d063f2671a4c-0
+00:51:01.170 --> 00:51:02.170
+That's correct, yes.
+
+dbc0aa63-3513-4de5-9eff-e662df357ed4-0
+00:51:03.210 --> 00:51:12.037
+So the inside one,
+the port number should be 8585, Yes, 85,
+
+dbc0aa63-3513-4de5-9eff-e662df357ed4-1
+00:51:12.037 --> 00:51:17.040
+right, that's correct, Yeah, yeah.
+
+6f995c34-5617-47cc-9263-bf926e1a096a-0
+00:51:21.040 --> 00:51:27.680
+And health check should be is that API V1?
+
+bf52c44e-4d1a-4bf0-ac40-066107417e77-0
+00:51:29.160 --> 00:51:32.320
+No, it should be default one, right.
+
+257f99c9-85fc-48e5-84f5-6e35a3d9dd72-0
+00:51:32.320 --> 00:51:32.880
+Is it that way?
+
+616e28cd-dee7-47bf-ac35-de3f47bdd8f7-0
+00:51:33.840 --> 00:51:34.840
+Yeah, it should be default.
+
+87f91e8e-6d88-4fb8-8e41-dd9866e2b2a2-0
+00:51:35.080 --> 00:51:35.800
+Yeah, slash one.
+
+9f4af684-ac23-4ca4-838d-2d94ebd636cf-0
+00:51:36.680 --> 00:51:38.000
+OK, nothing.
+
+ff14315e-ad9a-4e68-ae27-efb766fc27e8-0
+00:51:38.640 --> 00:51:41.760
+Yeah, But the other one is OK.
+
+49f06cae-0470-4895-b7d7-f659094f9ff5-0
+00:52:11.460 --> 00:52:21.540
+And we need to create another one right
+inside Dash API, Just inside Dash API.
+
+ddb0724b-9618-4f75-be7c-45b94c31efbb-0
+00:52:31.540 --> 00:52:33.860
+This one is 9004, right?
+
+7fc3b7d0-704e-40d0-953e-f18e2d89c7d3-0
+00:52:34.980 --> 00:52:35.740
+That's correct.
+
+cec1050d-6096-488a-b8f1-b6e05a566c9b-0
+00:52:38.320 --> 00:52:45.640
+How to check is API dot E1 dot default
+slash help slash?
+
+d5a0a89f-f00d-4184-b86d-da6730a9f8f9-0
+00:55:01.400 --> 00:55:10.200
+OK, so edit now let me try to open.
+
+13c4ff09-54ed-49ad-99ba-c2cdc994bf21-0
+00:55:10.200 --> 00:55:12.240
+I have the VM registered themselves.
+
+14b594fd-e835-4125-8e1c-d322af0b649a-0
+00:55:14.000 --> 00:55:14.400
+Yes.
+
+fb3b7222-82b8-422b-80fc-eb36c3dff0ab-0
+00:55:15.920 --> 00:55:19.320
+OK, yeah, I can see the login page.
+
+e7fbc160-1454-44a2-a631-a2c30f8be709-0
+00:55:21.680 --> 00:55:23.520
+This this one's still login.
+
+f97b2660-c514-4e8e-b4d9-c3ad1e1ecda6-0
+00:55:23.520 --> 00:55:26.360
+Also this one's still in this slide.
+
+6fb6e165-2eab-461d-8aca-174e5f40c45e-0
+00:55:26.360 --> 00:55:28.600
+The API one is still in this slide.
+
+de807efe-94c2-4028-a81e-ffbbb63a3cf2-0
+00:55:31.480 --> 00:55:35.000
+OK,
+we have to wait for API to get healthy.
+
+6cd925aa-57da-423b-a67f-a61e22384d60-0
+00:55:36.640 --> 00:55:39.280
+In the meanwhile, Shar try to access it.
+
+bdf10fca-a095-4fed-b60b-5addf8399972-0
+00:55:39.840 --> 00:55:40.880
+Are you able to access it?
+
+6ac5206d-ec41-44d9-a62f-b98da3cb2998-0
+00:55:41.720 --> 00:55:56.060
+The inside one without API is healthy now,
+so OK, this one is unhealthy.
+
+8844a93f-2cc8-481f-9399-c0db6435b057-0
+00:55:59.500 --> 00:56:07.880
+Yeah, Fortnite, OK,
+can you go to the main VM?
+
+438d09de-e33b-44a0-af3b-d24e568c72b5-0
+00:56:09.600 --> 00:56:23.933
+Just wanted to execute this command 9004
+slash slash default slash help slash Yeah
+
+438d09de-e33b-44a0-af3b-d24e568c72b5-1
+00:56:23.933 --> 00:56:27.560
+can you execute this?
+
+db53ccdb-6229-492d-bba6-51597316f260-0
+00:56:42.040 --> 00:56:43.480
+Let me check the security group.
+
+cb5da683-939a-46ee-8658-4dcd169d9696-0
+00:56:47.480 --> 00:56:49.000
+Did you get security group for that
+server?
+
+179cc670-a4c0-4c1e-a6dd-4c087d5a56fd-0
+00:56:49.000 --> 00:56:52.840
+Make sure the port 9004 is is no no, no,
+no, no no.
+
+99c7a7ac-b888-4683-b060-3a8e52e5e634-0
+00:56:53.280 --> 00:56:54.240
+I got no issue.
+
+f20d6adf-391d-465d-82f4-cb2de3990c57-0
+00:56:55.400 --> 00:56:56.280
+No, I got the issue.
+
+9cf50cfc-0877-4cb8-a81f-57f6ae56b5df-0
+00:56:56.480 --> 00:57:00.120
+No,
+that way last time the port is not open.
+
+4c159daa-74a3-43a9-ae49-dcd656660d2e-0
+00:57:00.120 --> 00:57:03.531
+So no,
+no point is we need to create the
+
+4c159daa-74a3-43a9-ae49-dcd656660d2e-1
+00:57:03.531 --> 00:57:04.280
+database.
+
+deb2be79-fa4c-4dfc-a939-6642645cd94a-0
+00:57:04.280 --> 00:57:06.400
+Which RT dashboard have we created in
+prod?
+
+4ba3a38d-7f5c-453c-ad99-c383cafdf111-0
+00:57:06.400 --> 00:57:08.200
+Yeah, no, no.
+
+d1e4616b-36a2-4d93-9dfc-7dfa6e42c202-0
+00:57:08.200 --> 00:57:09.040
+Yeah, correct.
+
+6d16849a-fda6-439e-a950-588ddfc86370-0
+00:57:12.480 --> 00:57:13.080
+Pratik.
+
+ffb48cda-d7ef-4362-8432-bde1dc49d470-0
+00:57:15.000 --> 00:57:18.200
+I think time is up, Joseph.
+
+fa4e1beb-59fc-4d30-8a91-4a31139f909f-0
+00:57:18.200 --> 00:57:20.480
+So what you can do is like you.
+
+43ab7916-b2a3-4542-9b0f-1322319d20f7-0
+00:57:20.480 --> 00:57:21.520
+Thanks for your time.
+
+b8c677ab-659c-43d2-a179-bca4298ae682-0
+00:57:22.000 --> 00:57:25.000
+We can take this tomorrow in offshore
+hours, Siddharth.
+
+7e2bcf6a-3ef9-4a10-a8dd-3e43d83ca998-0
+00:57:25.000 --> 00:57:25.400
+Correct.
+
+9ed3f10d-bbab-425e-8a8d-61e04159a6fb-0
+00:57:27.160 --> 00:57:27.360
+OK.
+
+7cf37c46-0ecd-4f51-a636-1965b09ed096-0
+00:57:27.360 --> 00:57:27.480
+OK.
+
+7ee6529f-8bc1-404a-afac-a5c34ea2ac62-0
+00:57:29.200 --> 00:57:29.640
+Sounds good.
+
+aaaf70c6-c67a-4f94-91b8-969cddfab96a-0
+00:57:30.000 --> 00:57:30.960
+You're making progress.
+
+38d34e54-9118-4f19-a011-fe5a9cb79571-0
+00:57:32.280 --> 00:57:32.400
+Yes.
+
+3f310c9f-fcba-4c49-b8e0-01fc1bce5107-0
+00:57:32.400 --> 00:57:32.600
+Yeah.
+
+ea7d599c-7a62-4102-8dfe-4635e82914a7-0
+00:57:32.640 --> 00:57:35.440
+I think by tomorrow this time we should
+be sorted.
+
+557991da-7e31-4a47-8751-5d0dd33bb5f5-0
+00:57:35.560 --> 00:57:38.840
+We will have a session with the offshore
+team and we would be good.
+
+cd629dd7-5c98-41a8-9c7b-7aeb48cd7d65-0
+00:57:39.760 --> 00:57:40.000
+OK.
+
+f9a23a1e-b2cc-4da7-a07d-6053d465e6e5-0
+00:57:42.160 --> 00:57:42.600
+Thank you.
+
+6390c1f6-e27f-4b76-9732-c62ba580b4ff-0
+00:57:43.240 --> 00:57:43.480
+Bye.
+
+04ff7f10-51d9-49f5-801d-4631fe1adaa9-0
+00:57:43.520 --> 00:57:43.640
+Bye.
+
+38dc6a9a-4fa0-49a4-bd6e-6e8bbba3cc2c-0
+00:57:43.880 --> 00:57:44.680
+Thank you, Joseph.
+
+ec97c8db-6002-4661-be77-fa145c33c19f-0
+00:57:45.480 --> 00:57:45.920
+You're welcome.
+
+25b6fedc-5b31-48a5-9cf8-bca837291960-0
+00:57:45.920 --> 00:57:46.160
+Thanks.
+
+89b7aaa7-7981-4941-8b8b-7a713f2db0a8-0
+00:57:46.360 --> 00:57:46.720
+Good luck.
+
+37dde3fa-6971-40f8-b661-a00cf00d36ea-0
+00:57:47.280 --> 00:57:47.440
+Bye.
+
+ac27a639-deae-4e00-a5e1-7eb28731fca3-0
+00:57:49.320 --> 00:57:49.600
+Take care.
+
+078eb9e7-37c6-4a71-8248-bebbc372ad0c-0
+00:57:49.800 --> 00:57:50.000
+Yeah.
+
+780a2490-51e1-468e-ac99-abaf5ef96643-0
+00:57:50.480 --> 00:57:50.560
+Bye.
+
+8491794b-60ac-4329-99d2-acbd39d8d778-0
+00:57:50.680 --> 00:57:54.406
+Hey, Pratik,
+make sure the firewall rule is added so
+
+8491794b-60ac-4329-99d2-acbd39d8d778-1
+00:57:54.406 --> 00:57:57.360
+that we can test the whole thing tomorrow.
+
+543468cd-322b-4a79-8a94-e6d70aba623b-0
+00:57:58.440 --> 00:57:58.640
+Yeah.
+
+20afd699-ccfc-4143-9ace-a805a7cc9ffd-0
+00:57:58.720 --> 00:57:58.840
+Yeah.
+
+29fc48e6-bdc0-4529-b06a-b6b79bfd8405-0
+00:57:58.960 --> 00:58:00.520
+He's on hold, but I'll inform him.
+
+f238eeae-4212-494d-8d95-b4bae688d7fd-0
+00:58:00.720 --> 00:58:01.160
+Thanks, Joe.
+
+3a32e539-0640-42fd-a440-feafa0717925-0
+00:58:01.360 --> 00:58:01.640
+OK.
+
+5ab59ec6-1039-44e0-8430-1d8374f430e3-0
+00:58:01.680 --> 00:58:02.240
+Yeah, thank you.
+
+98e51ef2-81af-4cc7-9a4f-8c13aed2d63c-0
+00:58:02.960 --> 00:58:03.080
+Right.
+
+1679c910-1570-4ae4-aee3-febe64dc700b-0
+00:58:04.920 --> 00:58:05.040
+Yeah.
+
+be6e45c0-c4e7-44c1-b49d-7c5a83b66132-0
+00:58:05.080 --> 00:58:11.149
+So that you can drop shy if you want,
+you can join the discovery call and we
+
+be6e45c0-c4e7-44c1-b49d-7c5a83b66132-1
+00:58:11.149 --> 00:58:13.120
+can finish this tomorrow.
+
+abf5c5d2-e67d-4dc9-9b7f-3e0683b6728a-0
+00:58:13.160 --> 00:58:13.480
+OK.
+
+0bb345d4-01af-4a28-a52c-7c1cc2c09083-0
+00:58:14.480 --> 00:58:14.760
+Sure.
+
+db2a9f4c-610f-43e3-817b-1ae974630b61-0
+00:58:15.600 --> 00:58:15.960
+Thank you.
+
+aad954f1-5f22-46c4-b9c6-18c631b0f54b-0
+00:58:16.520 --> 00:58:17.000
+Thanks for that.
+
+f00a48ca-2ded-4ebc-a83f-808e590ecd93-0
+00:58:17.000 --> 00:58:17.280
+Thank you.
+
+878ce7d4-aaca-442e-bc24-b17327b9f589-0
+00:58:18.080 --> 00:58:19.280
+OK, Thanks, Deepak.
+
+d660c573-11ed-4911-b2b8-72d8c270a1d6-0
+00:58:19.400 --> 00:58:20.040
+Yeah, bye.
+
+0751bd83-bab0-48b4-99be-776575a23490-0
+00:58:21.440 --> 00:58:22.000
+Thanks, Harish.
+
+bc01d1c0-91e5-4384-9a73-4c60ed624b0e-0
+00:58:22.000 --> 00:58:22.240
+Yeah.

@@ -1,0 +1,45 @@
+name: Delete Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: "Branch name to delete"
+        required: true
+
+permissions:
+  contents: write   # Required to delete branches
+
+jobs:
+  delete-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate branch input
+        run: |
+          if [ -z "${{ github.event.inputs.branch_name }}" ]; then
+            echo "Branch name cannot be empty"
+            exit 1
+          fi
+
+      - name: Check if branch exists
+        run: |
+          if git ls-remote --exit-code --heads https://github.com/${{ github.repository }}.git ${{ github.event.inputs.branch_name }}
+          then
+            echo "Branch exists"
+          else
+            echo "Branch does not exist"
+            exit 1
+          fi
+
+      - name: Prevent deletion of protected branches
+        run: |
+          if [[ "${{ github.event.inputs.branch_name }}" == "main" || \
+                "${{ github.event.inputs.branch_name }}" == "develop" ]]; then
+            echo "You cannot delete protected branches"
+            exit 1
+          fi
+
+      - name: Delete branch
+        run: |
+          git push origin --delete ${{ github.event.inputs.branch_name }}

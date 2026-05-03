@@ -8,14 +8,19 @@ on:
         required: true
 
 permissions:
-  contents: write   # Required to delete branches
+  contents: write
 
 jobs:
   delete-branch:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Validate branch input
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate input
         run: |
           if [ -z "${{ github.event.inputs.branch_name }}" ]; then
             echo "Branch name cannot be empty"
@@ -24,7 +29,8 @@ jobs:
 
       - name: Check if branch exists
         run: |
-          if git ls-remote --exit-code --heads https://github.com/${{ github.repository }}.git ${{ github.event.inputs.branch_name }}
+          git fetch origin
+          if git show-ref --verify --quiet refs/remotes/origin/${{ github.event.inputs.branch_name }}
           then
             echo "Branch exists"
           else
@@ -36,7 +42,7 @@ jobs:
         run: |
           if [[ "${{ github.event.inputs.branch_name }}" == "main" || \
                 "${{ github.event.inputs.branch_name }}" == "develop" ]]; then
-            echo "You cannot delete protected branches"
+            echo "Protected branch. Cannot delete."
             exit 1
           fi
 
